@@ -162,6 +162,7 @@ const plan = new PreApprovalPlan(client);
 
     } catch (error: any) {
       console.error('Erro ao criar assinatura no Mercado Pago:', error);
+      if (error.cause) console.log('Causa detalhada do Mercado Pago:', JSON.stringify(error.cause, null, 2));
       res.status(500).json({
         error: 'Erro interno ao criar assinatura',
         details: error.message || error
