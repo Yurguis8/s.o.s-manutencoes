@@ -25,6 +25,9 @@ app.get('/health', (_req, res) => {
     webhookUrl: getWebhookUrl(),
   });
 });
+console.log("MP TOKEN:", process.env.MERCADO_PAGO_ACCESS_TOKEN ? "Existe" : "Não existe");
+console.log("APP_URL:", process.env.APP_URL);
+console.log("NODE_ENV:", process.env.NODE_ENV);
 
 app.use('/api/payments', paymentRoutes);
 
