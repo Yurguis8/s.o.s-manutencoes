@@ -1,0 +1,16 @@
+{
+  "name": "sos-manutencoes-monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @sos/frontend\" \"npm run dev -w @sos/backend\"",
+    "build": "npm run build -w @sos/frontend && npm run build -w @sos/backend",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

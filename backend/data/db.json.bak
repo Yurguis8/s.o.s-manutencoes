@@ -1,0 +1,104 @@
+[
+  {
+    "id": "81aaaf95-ab5f-4313-adef-58039216336a",
+    "planId": "total",
+    "billingCycle": "semiannual",
+    "payer": {
+      "name": "Vip Payer",
+      "email": "vip_payer@example.com",
+      "phone": "11988888888",
+      "address": "Av Paulista, 100"
+    },
+    "amount": 714,
+    "status": "pending",
+    "preapprovalId": "2a118a6cfc7249fc8d8f34e5d05cc8ce",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2a118a6cfc7249fc8d8f34e5d05cc8ce",
+    "createdAt": "2026-06-28T18:07:53.345Z",
+    "updatedAt": "2026-06-28T18:07:53.346Z"
+  },
+  {
+    "id": "0a262638-2931-43af-895f-42484098e90e",
+    "planId": "casa",
+    "billingCycle": "annual",
+    "payer": {
+      "name": "Yurguis Matos",
+      "email": "yurguis9@gmail.com",
+      "phone": "75988431329",
+      "address": "Rua Teste1"
+    },
+    "amount": 816,
+    "status": "pending",
+    "preapprovalId": "7de381cfc0bc47a4847f10efe2a6ea63",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=7de381cfc0bc47a4847f10efe2a6ea63",
+    "createdAt": "2026-06-28T18:12:23.087Z",
+    "updatedAt": "2026-06-28T18:12:23.087Z"
+  },
+  {
+    "id": "7ab3d38b-15c3-4e24-b2c6-d9485fbcd32c",
+    "planId": "casa",
+    "billingCycle": "annual",
+    "payer": {
+      "name": "Teste Mensal",
+      "email": "teste_mensal@example.com",
+      "phone": "11999999999",
+      "address": "Rua Teste, 1"
+    },
+    "amount": 816,
+    "status": "pending",
+    "preapprovalId": "0cc47df055c747f99d9cc44cd8a619b4",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=0cc47df055c747f99d9cc44cd8a619b4",
+    "createdAt": "2026-06-28T18:18:55.991Z",
+    "updatedAt": "2026-06-28T18:18:55.991Z"
+  },
+  {
+    "id": "9f1a9e07-d94e-4dae-8a43-91cbae955243",
+    "planId": "casa",
+    "billingCycle": "annual",
+    "payer": {
+      "name": "APR0",
+      "email": "yurguis9@gmail.com",
+      "phone": "75988377544",
+      "address": "teste"
+    },
+    "amount": 816,
+    "status": "pending",
+    "preapprovalId": "fffa55d9ef2345628e20460448095651",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=fffa55d9ef2345628e20460448095651",
+    "createdAt": "2026-06-28T18:20:45.280Z",
+    "updatedAt": "2026-06-28T18:20:45.281Z"
+  },
+  {
+    "id": "6b3ba748-0fbd-428f-9e3d-b7b1c14591b8",
+    "planId": "casa",
+    "billingCycle": "annual",
+    "payer": {
+      "name": "APR0",
+      "email": "yurguis9@gmail.com",
+      "phone": "75988377544",
+      "address": "teste2"
+    },
+    "amount": 816,
+    "status": "pending",
+    "preapprovalId": "7794b26e0b2f4714ba9ce75ee78c9f7e",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=7794b26e0b2f4714ba9ce75ee78c9f7e",
+    "createdAt": "2026-06-28T18:27:45.045Z",
+    "updatedAt": "2026-06-28T18:27:45.045Z"
+  },
+  {
+    "id": "a3650beb-8c21-48fd-a03a-0f2d941ecb78",
+    "planId": "casa",
+    "billingCycle": "semiannual",
+    "payer": {
+      "name": "Yurguis",
+      "email": "teste4@gmail.com",
+      "phone": "099999999",
+      "address": "teste3"
+    },
+    "amount": 474,
+    "status": "pending",
+    "preapprovalId": "2235cb25863b40279ed2ea36a889d5eb",
+    "initPoint": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2235cb25863b40279ed2ea36a889d5eb",
+    "createdAt": "2026-06-28T19:23:43.434Z",
+    "updatedAt": "2026-06-28T19:23:43.434Z"
+  }
+]

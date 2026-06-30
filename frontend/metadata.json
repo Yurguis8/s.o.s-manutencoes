@@ -1,0 +1,6 @@
+{
+  "name": "S.O.S Manutenções",
+  "description": "Clube de assinatura para manutenção preventiva e corretiva de móveis planejados e residenciais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
