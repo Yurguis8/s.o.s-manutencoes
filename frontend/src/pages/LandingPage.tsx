@@ -5,6 +5,7 @@ import { Hero } from '../components/Hero';
 import { HowItWorks } from '../components/HowItWorks';
 import { ProblemSection } from '../components/ProblemSection';
 import { SolutionSection } from '../components/SolutionSection';
+import { ScrollAnimationSection } from '../components/ScrollAnimationSection';
 import { PlansSection } from '../components/PlansSection';
 import { ComparisonTable } from '../components/ComparisonTable';
 import { GeneralBenefits } from '../components/GeneralBenefits';
@@ -56,6 +57,7 @@ export const LandingPage: React.FC = () => {
         <HowItWorks />
         <ProblemSection />
         <SolutionSection />
+        <ScrollAnimationSection />
         <PlansSection onSubscribe={handleSubscribePlan} />
         <ComparisonTable />
         <GeneralBenefits />
