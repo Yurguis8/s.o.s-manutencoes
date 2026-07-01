@@ -15,29 +15,27 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
   };
 
   return (
-    <section id="planos" className="py-24 bg-white border-b border-gray-100">
+    <section id="planos" className="py-24 bg-surface border-b border-border">
       <div className="max-w-[1200px] mx-auto px-6">
-        
-        {/* Minimalist Header */}
+
         <div className="max-w-2xl mb-16">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-muted mb-3">
             Planos de assinatura
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">
             Modalidades de cobertura patrimonial
           </h2>
-          <p className="text-base text-gray-600">
+          <p className="text-base text-foreground-muted">
             Contratos semestrais ou anuais com faturamento programado e vistorias presenciais inclusas.
           </p>
 
-          {/* Clean Corporate Toggle */}
-          <div className="mt-8 inline-flex items-center bg-gray-100 p-1 rounded-lg border border-gray-200">
+          <div className="mt-8 inline-flex items-center bg-surface-muted p-1 rounded-lg border border-border">
             <button
               onClick={() => setBillingCycle('semiannual')}
               className={`px-4 py-2 rounded-md text-xs font-medium transition-all duration-150 cursor-pointer focus:outline-none ${
                 billingCycle === 'semiannual'
-                  ? 'bg-white text-gray-900 shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-surface-card text-foreground shadow-sm'
+                  : 'text-foreground-muted hover:text-foreground'
               }`}
             >
               Plano Semestral
@@ -46,13 +44,13 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
               onClick={() => setBillingCycle('annual')}
               className={`px-4 py-2 rounded-md text-xs font-medium transition-all duration-150 cursor-pointer focus:outline-none flex items-center gap-2 ${
                 billingCycle === 'annual'
-                  ? 'bg-[#8E0E1A] text-white shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-brand text-white shadow-sm'
+                  : 'text-foreground-muted hover:text-foreground'
               }`}
             >
               <span>Plano Anual</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${
-                billingCycle === 'annual' ? 'bg-black/30 text-emerald-300' : 'bg-emerald-100 text-emerald-800'
+                billingCycle === 'annual' ? 'bg-black/30 text-accent' : 'bg-accent/10 text-accent'
               }`}>
                 15% off
               </span>
@@ -60,7 +58,6 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
           </div>
         </div>
 
-        {/* Corporate Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
           {PLANS.map((plan) => {
             const isPopular = plan.id === 'casa';
@@ -71,71 +68,69 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
             return (
               <div
                 key={plan.id}
-                className={`rounded-xl p-8 flex flex-col justify-between bg-white border transition-all duration-150 ${
+                className={`rounded-xl p-8 flex flex-col justify-between bg-surface-card border transition-all duration-150 ${
                   isPopular
-                    ? 'border-[#8E0E1A] ring-1 ring-[#8E0E1A] shadow-sm relative'
-                    : 'border-gray-200 shadow-xs'
+                    ? 'border-brand ring-1 ring-brand shadow-lg shadow-brand/10 relative'
+                    : 'border-border hover:border-border/80'
                 }`}
               >
                 {isPopular && (
-                  <div className="absolute top-0 right-8 -translate-y-1/2 bg-[#8E0E1A] text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded">
+                  <div className="absolute top-0 right-8 -translate-y-1/2 bg-brand text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded">
                     Recomendado
                   </div>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-gray-900">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {plan.name}
                     </h3>
                   </div>
 
-                  <p className="text-xs text-gray-600 mb-6 min-h-[36px] leading-relaxed">
+                  <p className="text-xs text-foreground-muted mb-6 min-h-[36px] leading-relaxed">
                     {plan.tagline}
                   </p>
 
-                  {/* Clean Pricing */}
-                  <div className="mb-8 pb-6 border-b border-gray-100">
+                  <div className="mb-8 pb-6 border-b border-border">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-xs font-semibold text-gray-500">R$</span>
-                      <span className="text-4xl font-bold tracking-tight text-gray-900">
+                      <span className="text-xs font-semibold text-foreground-subtle">R$</span>
+                      <span className="text-4xl font-bold tracking-tight text-foreground">
                         {monthlyEquiv}
                       </span>
-                      <span className="text-xs text-gray-500">/mês</span>
+                      <span className="text-xs text-foreground-subtle">/mês</span>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1.5 font-mono">
+                    <div className="text-xs text-foreground-subtle mt-1.5 font-mono">
                       Faturamento total: R$ {totalCycle} por ciclo de {cycleName}
                     </div>
                   </div>
 
-                  {/* Benefits List */}
                   <div className="space-y-3 mb-8">
-                    <div className="text-[11px] font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                    <div className="text-[11px] font-semibold text-foreground uppercase tracking-wider mb-4">
                       Escopo de serviços:
                     </div>
                     {plan.benefits.map((benefit, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-gray-700">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-foreground-muted">
+                        <Check className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-gray-100 mt-auto">
+                <div className="pt-6 border-t border-border mt-auto">
                   <button
                     onClick={() => handleSubscribe(plan)}
                     className={`w-full py-2.5 rounded-lg font-medium text-xs transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer ${
                       isPopular
-                        ? 'bg-[#8E0E1A] hover:bg-[#8E0E1A]/90 text-white'
-                        : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-200'
+                        ? 'bg-brand hover:bg-brand-hover text-white shadow-md shadow-brand/20'
+                        : 'bg-surface-muted hover:bg-surface-subtle text-foreground border border-border'
                     }`}
                   >
                     <span>Contratar {plan.name}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
-                  
-                  <div className="mt-2.5 text-center text-[10px] text-gray-400">
+
+                  <div className="mt-2.5 text-center text-[10px] text-foreground-subtle">
                     Garantia técnica e cancelamento corporativo simplificado
                   </div>
                 </div>

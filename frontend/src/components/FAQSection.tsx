@@ -10,58 +10,56 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white border-b border-gray-100">
+    <section id="faq" className="py-24 bg-surface border-b border-border">
       <div className="max-w-[1200px] mx-auto px-6">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column Copy */}
+
           <div className="lg:col-span-5">
-            <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-muted mb-3">
               Esclarecimentos institucionais
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-4">
               Perguntas frequentes
             </h2>
-            <p className="text-base text-gray-600 mb-8">
+            <p className="text-base text-foreground-muted mb-8">
               Tudo o que você precisa saber sobre o funcionamento técnico dos contratos semestrais e anuais.
             </p>
 
-            <div className="p-6 rounded-xl bg-[#F6F8FA] border border-gray-200">
-              <h4 className="text-sm font-semibold text-gray-900 mb-1">Precisa de um plano customizado?</h4>
-              <p className="text-xs text-gray-600 mb-4">Para coberturas em múltiplas residências ou edifícios corporativos, fale diretamente com nossa equipe técnica.</p>
-              <a 
+            <div className="p-6 rounded-xl bg-surface-muted border border-border">
+              <h4 className="text-sm font-semibold text-foreground mb-1">Precisa de um plano customizado?</h4>
+              <p className="text-xs text-foreground-muted mb-4">Para coberturas em múltiplas residências ou edifícios corporativos, fale diretamente com nossa equipe técnica.</p>
+              <a
                 href="https://wa.me/5511998823456?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20planos%20corporativos%20customizados."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-semibold text-[#8E0E1A] hover:underline"
+                className="text-xs font-semibold text-brand hover:text-brand-muted transition-colors"
               >
                 Falar com consultor corporativo →
               </a>
             </div>
           </div>
 
-          {/* Right Column Accordion */}
           <div className="lg:col-span-7 space-y-4">
             {FAQS.map((item, i) => {
               const isOpen = openIndex === i;
               return (
-                <div 
+                <div
                   key={item.question}
-                  className="rounded-lg border border-gray-200 bg-white overflow-hidden transition-colors"
+                  className="rounded-lg border border-border bg-surface-card overflow-hidden transition-colors"
                 >
                   <button
                     onClick={() => toggle(i)}
-                    className="w-full py-5 px-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer hover:bg-gray-50/50"
+                    className="w-full py-5 px-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer hover:bg-surface-muted/50"
                   >
-                    <span className="text-sm font-semibold text-gray-900">
+                    <span className="text-sm font-semibold text-foreground">
                       {item.question}
                     </span>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-gray-900' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-foreground-subtle shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-foreground' : ''}`} />
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                    <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-foreground-muted leading-relaxed border-t border-border">
                       {item.answer}
                     </div>
                   )}

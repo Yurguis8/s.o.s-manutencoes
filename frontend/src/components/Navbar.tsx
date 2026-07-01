@@ -23,88 +23,80 @@ export const Navbar: React.FC = () => {
     }
   };
 
+  const navLinkClass = scrolled
+    ? 'text-sm font-medium text-foreground-muted hover:text-foreground transition-colors focus:outline-none cursor-pointer'
+    : 'text-sm font-medium text-white/80 hover:text-white transition-colors focus:outline-none cursor-pointer';
+
+  const logoClass = scrolled
+    ? 'text-lg font-semibold tracking-tight text-foreground'
+    : 'text-lg font-semibold tracking-tight text-white';
+
+  const logoMutedClass = scrolled
+    ? 'text-foreground-subtle font-normal'
+    : 'text-white/60 font-normal';
+
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white ${
-        scrolled ? 'border-b border-gray-200 py-3.5 shadow-xs' : 'border-b border-transparent py-5'
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-surface/90 backdrop-blur-md border-b border-border py-3.5 shadow-lg shadow-black/20'
+          : 'bg-transparent border-b border-transparent py-5'
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
-        
-        {/* Institutional Logo */}
-        <Link 
-          to="/" 
-          className="flex items-center gap-2.5 focus:outline-none"
-        >
-          
-          <span className="text-lg font-semibold tracking-tight text-gray-900">
-            S.O.S <span className="text-gray-500 font-normal">Manutenções</span>
+
+        <Link to="/" className="flex items-center gap-2.5 focus:outline-none">
+          <span className={logoClass}>
+            S.O.S <span className={logoMutedClass}>Manutenções</span>
           </span>
         </Link>
 
-        {/* Minimalist Corporate Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <button 
-            onClick={() => scrollToSection('como-funciona')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('como-funciona')} className={navLinkClass}>
             Como funciona
           </button>
-          <button 
-            onClick={() => scrollToSection('problema')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('problema')} className={navLinkClass}>
             Problema e Solução
           </button>
-          <button 
-            onClick={() => scrollToSection('planos')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('planos')} className={navLinkClass}>
             Planos
           </button>
-          <button 
-            onClick={() => scrollToSection('comparativo')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('comparativo')} className={navLinkClass}>
             Comparativo
           </button>
-          <button 
-            onClick={() => scrollToSection('depoimentos')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('depoimentos')} className={navLinkClass}>
             Depoimentos
           </button>
-          <button 
-            onClick={() => scrollToSection('faq')} 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none cursor-pointer"
-          >
+          <button onClick={() => scrollToSection('faq')} className={navLinkClass}>
             FAQ
           </button>
         </nav>
 
-        {/* Corporate CTA Action */}
         <div className="hidden lg:flex items-center gap-4">
-          <a 
+          <a
             href={COMPANY_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors mr-2"
+            className={`text-sm font-medium transition-colors mr-2 ${
+              scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/80 hover:text-white'
+            }`}
           >
             Contato
           </a>
-          <button 
+          <button
             onClick={() => scrollToSection('planos')}
-            className="px-4 py-2 rounded-lg bg-[#8E0E1A] hover:bg-[#8E0E1A]/90 text-white font-medium text-sm transition-all duration-150 cursor-pointer flex items-center gap-1.5"
+            className="px-4 py-2 rounded-lg bg-brand hover:bg-brand-hover text-white font-medium text-sm transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-md shadow-brand/20"
           >
             <span>Assinar planos</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Mobile menu button */}
-        <button 
+        <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-1.5 text-gray-700 hover:text-gray-900 focus:outline-none"
+          className={`md:hidden p-1.5 focus:outline-none transition-colors ${
+            scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/90 hover:text-white'
+          }`}
           aria-label="Abrir menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -112,50 +104,31 @@ export const Navbar: React.FC = () => {
 
       </div>
 
-      {/* Clean Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 px-6 pt-4 pb-6 mt-3.5 shadow-lg">
+        <div className="md:hidden bg-surface-elevated border-b border-border px-6 pt-4 pb-6 mt-3.5 shadow-xl">
           <div className="flex flex-col gap-4">
-            <button 
-              onClick={() => scrollToSection('como-funciona')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('como-funciona')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Como funciona
             </button>
-            <button 
-              onClick={() => scrollToSection('problema')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('problema')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Problema e Solução
             </button>
-            <button 
-              onClick={() => scrollToSection('planos')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('planos')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Planos e Preços
             </button>
-            <button 
-              onClick={() => scrollToSection('comparativo')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('comparativo')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Comparativo
             </button>
-            <button 
-              onClick={() => scrollToSection('depoimentos')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('depoimentos')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Depoimentos
             </button>
-            <button 
-              onClick={() => scrollToSection('faq')} 
-              className="text-left text-sm font-medium text-gray-700 hover:text-gray-900 py-1"
-            >
+            <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Perguntas Frequentes
             </button>
-            <div className="pt-3 border-t border-gray-100 flex flex-col gap-2">
-              <button 
+            <div className="pt-3 border-t border-border flex flex-col gap-2">
+              <button
                 onClick={() => scrollToSection('planos')}
-                className="w-full py-2.5 rounded-lg bg-[#8E0E1A] text-white font-medium text-sm text-center"
+                className="w-full py-2.5 rounded-lg bg-brand hover:bg-brand-hover text-white font-medium text-sm text-center"
               >
                 Assinar planos
               </button>
@@ -166,4 +139,3 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
-

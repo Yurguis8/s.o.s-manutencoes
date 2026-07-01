@@ -48,7 +48,7 @@ export const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-[#8E0E1A] selection:text-white overflow-x-hidden pt-16">
+    <div className="min-h-screen bg-surface text-foreground font-sans overflow-x-hidden">
       <Navbar />
 
       <main>
