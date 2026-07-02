@@ -15,6 +15,7 @@ import { CTASection } from '../components/CTASection';
 import { Footer } from '../components/Footer';
 import { SubscribeModal } from '../components/SubscribeModal';
 import { PaymentFeedbackModal } from '../components/PaymentFeedbackModal';
+import { CancellationSection } from '../components/CancellationSection';
 
 export const LandingPage: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
@@ -64,6 +65,7 @@ export const LandingPage: React.FC = () => {
         <ProblemSection />
         <FAQSection />
         <CTASection />
+        <CancellationSection />
       </main>
 
       <Footer />

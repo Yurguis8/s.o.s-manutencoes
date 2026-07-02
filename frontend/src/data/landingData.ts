@@ -7,7 +7,7 @@ export const COMPANY_INFO = {
   whatsapp: "(11) 99882-3456",
   whatsappUrl: "https://wa.me/5511998823456?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20assinatura%20da%20S.O.S%20Manuten%C3%A7%C3%B5es.",
   email: "contato@sosmanutencoes.com.br",
-  address: "Av. Brigadeiro Faria Lima, 3477 - Torre Norte - São Paulo, SP",
+  address: "Rua Maria Alves Damaceno - Ipirá - Bahia, BA",
   socials: {
     instagram: "https://instagram.com",
     facebook: "https://facebook.com",
@@ -45,7 +45,7 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
 export const PROBLEM_ITEMS: ProblemItem[] = [
   {
     title: "Portas desalinhadas",
-    description: "Portas que raspam, não fecham direito ou danificam o acabamento com o atrito constante."
+    description: "Portas que raspam, não fecham direito ou danificam o acabamento."
   },
   {
     title: "Gavetas pesadas",
@@ -76,20 +76,16 @@ export const PLANS: Plan[] = [
     totalAnnual: 598.80,
     benefits: [
       "Primeira inspeção em até 30 dias",
-      "2 inspeções preventivas por ano",
+      "4 inspeções preventivas por ano",
       "Regulagem de portas e gavetas",
-      "Regulagem de dobradiças",
-      "Regulagem de corrediças",
+      "Regulagem de dobradiças e corrediças",
       "Aperto de parafusos",
-      "Lubrificação das ferragens",
+      "Lubrificação e limpeza das ferragens",
       "Alinhamento de portas",
-      "Limpeza técnica das ferragens",
       "Inspeção de desgaste dos móveis",
       "Relatório digital da vistoria",
-      "Histórico das manutenções",
       "Diagnóstico por WhatsApp ilimitado",
       "Agendamento prioritário",
-      "Lembretes automáticos de revisão",
       "15% de desconto em serviços extras"
     ]
   },
@@ -104,6 +100,7 @@ export const PLANS: Plan[] = [
     isPopular: true,
     benefits: [
       "Tudo do Essencial +",
+      "6 inspeções preventivas por ano",
       "1 visita corretiva por ano",
       "Mão de obra gratuita em pequenos reparos",
       "Cliente paga apenas as peças",
@@ -124,6 +121,7 @@ export const PLANS: Plan[] = [
     benefits: [
       "Tudo do Casa +",
       "Primeira visita em até 15 dias",
+      "8 inspeções preventivas por ano",
       "2 visitas corretivas por ano",
       "Atendimento prioritário em até 24h",
       "25% de desconto em reformas",

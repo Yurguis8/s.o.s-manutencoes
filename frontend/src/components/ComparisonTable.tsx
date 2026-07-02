@@ -62,7 +62,7 @@ export const ComparisonTable: React.FC = () => {
                     Essencial
                   </th>
 
-                  <th className="py-3 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-bold text-brand bg-brand/5 border-x border-border min-w-[120px]">
+                  <th className="py-3 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-bold text-border-1 bg-gray-700 border-x border-border min-w-[120px]">
                     Casa (Popular)
                   </th>
 
@@ -86,7 +86,7 @@ export const ComparisonTable: React.FC = () => {
                       {renderCell(row.essential)}
                     </td>
 
-                    <td className="py-3 px-3 sm:px-6 text-center bg-brand/5 border-x border-border">
+                    <td className="py-3 px-3 sm:px-6 text-center bg-brand/2 border-x border-border">
                       {renderCell(row.casa)}
                     </td>
 

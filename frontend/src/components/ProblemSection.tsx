@@ -36,7 +36,7 @@ export const ProblemSection: React.FC = () => {
                 <p className="text-sm font-semibold text-gray-100 mb-1">
                   Reparar depois pode custar caro
                 </p>
-                <p className="text-sm text-gray-900 leading-relaxed">
+                <p className="text-sm text-gray-200 leading-relaxed">
                   Um conserto avulso tardio pode chegar a{' '}
                   <strong className="text-gray-100 font-bold">40% do valor</strong> do móvel original.
                 </p>

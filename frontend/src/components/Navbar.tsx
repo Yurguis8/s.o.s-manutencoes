@@ -67,9 +67,7 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollToSection('comparativo')} className={navLinkClass}>
             Comparativo
           </button>
-          <button onClick={() => scrollToSection('depoimentos')} className={navLinkClass}>
-            Depoimentos
-          </button>
+
           <button onClick={() => scrollToSection('faq')} className={navLinkClass}>
             FAQ
           </button>

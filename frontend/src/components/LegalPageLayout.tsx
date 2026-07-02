@@ -13,15 +13,18 @@ export const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ document }) =>
     <div className="min-h-screen bg-surface text-foreground font-sans">
       <header className="border-b border-border bg-surface-elevated py-4">
         <div className="max-w-[800px] mx-auto px-6 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded bg-brand flex items-center justify-center text-white font-bold text-xs">
-              S
-            </div>
-            <span className="text-base font-semibold text-foreground tracking-tight">
-              <span className="text-sos">S.O.S</span>{' '}
-              <span className="text-foreground-subtle font-normal">Manutenções</span>
-            </span>
-          </Link>
+          <Link to="/" className="flex items-center gap-2.5 focus:outline-none">
+                    <span className="font-semibold tracking-tight">
+                      <span
+                        className="text-xl sm:text-2xl font-bold text-brand-muted"
+                      >
+                        S.O.S
+                      </span>{' '}
+                      <span className="text-foreground-subtle font-normal">Manutenções</span>
+                      
+                    </span>
+                  </Link>
+          
           <Link
             to="/"
             className="flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-foreground transition-colors"
