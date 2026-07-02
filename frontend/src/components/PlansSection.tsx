@@ -97,14 +97,16 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, billingCycle, onSubscribe }) 
               </div>
             </div>
 
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3 mb-8 ">
               <div className="text-[11px] font-semibold text-foreground uppercase tracking-wider mb-4">
                 O que está incluso:
               </div>
               {plan.benefits.map((benefit, i) => (
+                <div >
                 <div key={i} className="flex items-start gap-2.5 text-xs text-foreground-muted">
                   <Check className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                   <span>{benefit}</span>
+                </div>
                 </div>
               ))}
             </div>

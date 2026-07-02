@@ -48,10 +48,8 @@ export const ProblemSection: React.FC = () => {
         <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {PROBLEM_ITEMS.map((item, index) => (
             <RevealStaggerItem key={item.title}>
-              <ShineCard
-                innerClassName={`${CARD_BACKGROUNDS[index % CARD_BACKGROUNDS.length]} flex flex-col justify-between`}
-              >
-                <div>
+              
+                <div className='bg-surface-muted p-8 rounded-xl'>
                   <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gray-100/80 text-xs font-mono font-bold text-gray-900 mb-4">
                     0{index + 1}
                   </span>
@@ -62,7 +60,7 @@ export const ProblemSection: React.FC = () => {
                     {item.description}
                   </p>
                 </div>
-              </ShineCard>
+              
             </RevealStaggerItem>
           ))}
         </RevealStagger>

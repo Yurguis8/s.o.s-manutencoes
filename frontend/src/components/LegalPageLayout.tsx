@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { LegalDocument } from '../data/legalContent';
 import { Footer } from './Footer';
+import { ThemeToggle } from './ThemeToggle';
 
 interface LegalPageLayoutProps {
   document: LegalDocument;
@@ -14,24 +15,22 @@ export const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ document }) =>
       <header className="border-b border-border bg-surface-elevated py-4">
         <div className="max-w-[800px] mx-auto px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 focus:outline-none">
-                    <span className="font-semibold tracking-tight">
-                      <span
-                        className="text-xl sm:text-2xl font-bold text-brand-muted"
-                      >
-                        S.O.S
-                      </span>{' '}
-                      <span className="text-foreground-subtle font-normal">Manutenções</span>
-                      
-                    </span>
-                  </Link>
-          
-          <Link
-            to="/"
-            className="flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            Voltar ao site
+            <span className="font-semibold tracking-tight">
+              <span className="text-xl sm:text-2xl font-bold text-sos">S.O.S</span>{' '}
+              <span className="text-foreground-subtle font-normal">Manutenções</span>
+            </span>
           </Link>
+
+          <div className="flex items-center gap-3">
+            <ThemeToggle scrolled />
+            <Link
+              to="/"
+              className="flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Voltar ao site
+            </Link>
+          </div>
         </div>
       </header>
 

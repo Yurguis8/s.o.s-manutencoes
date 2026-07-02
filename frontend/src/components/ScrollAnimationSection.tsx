@@ -196,19 +196,19 @@ export const ScrollAnimationSection: React.FC = () => {
       className="relative bg-surface border-b border-border w-full"
       style={{ height: `${SCROLL_HEIGHT_VH}vh` }}
     >
-      <div className={`${panelClass} h-screen flex items-center bg-surface`}>
+      <div className={`${panelClass} h-screen flex items-center bg-white`}>
         <div className="max-w-[1200px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-5 order-2 lg:order-1">
             <p className="text-xs font-semibold uppercase tracking-wider text-brand mb-3">
               Transformação real
             </p>
 
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
               Nosso trabalho na{' '}
               <span className="text-brand">sua casa</span>
             </h2>
 
-            <p className="mt-4 text-base text-foreground-muted font-normal leading-relaxed">
+            <p className="mt-4 text-base text-gray-500 font-normal leading-relaxed">
               Da bagunça à organização — veja como transformamos sua cozinha com cuidado e precisão técnica.
             </p>
 

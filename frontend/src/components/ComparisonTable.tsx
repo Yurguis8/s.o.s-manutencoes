@@ -53,8 +53,8 @@ export const ComparisonTable: React.FC = () => {
           <div className="overflow-x-auto rounded-xl border border-border bg-surface-card">
             <table className="w-full min-w-[640px] border-collapse">
               <thead>
-                <tr className="border-b border-border bg-surface-muted">
-                  <th className="sticky left-0 z-20 bg-surface-muted py-3 px-4 sm:px-6 text-left text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-foreground-muted min-w-[190px]">
+                <tr className="border-b border-border bg-surface-card">
+                  <th className="sticky left-0 z-20 bg-surface-card py-3 px-4 sm:px-6 text-left text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-foreground-muted min-w-[190px]">
                     Funcionalidade
                   </th>
 
@@ -62,7 +62,7 @@ export const ComparisonTable: React.FC = () => {
                     Essencial
                   </th>
 
-                  <th className="py-3 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-bold text-border-1 bg-gray-700 border-x border-border min-w-[120px]">
+                  <th className="py-3 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-bold text-border-1 bg-gray-900 border-x border-border min-w-[120px]">
                     Casa (Popular)
                   </th>
 

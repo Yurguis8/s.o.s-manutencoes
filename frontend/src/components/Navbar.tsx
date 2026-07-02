@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/landingData';
+import { ThemeToggle } from './ThemeToggle';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -73,35 +74,37 @@ export const Navbar: React.FC = () => {
           </button>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <a
-            href={COMPANY_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-sm font-medium transition-colors mr-2 ${
-              scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/80 hover:text-white'
-            }`}
-          >
-            Contato
-          </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <ThemeToggle scrolled={scrolled} />
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href={COMPANY_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/80 hover:text-white'
+              }`}
+            >
+              Contato
+            </a>
+            <button
+              onClick={() => scrollToSection('planos')}
+              className="px-4 py-2 rounded-lg bg-brand hover:bg-brand-hover text-white font-medium text-sm transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-md shadow-brand/20"
+            >
+              <span>Assinar planos</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
           <button
-            onClick={() => scrollToSection('planos')}
-            className="px-4 py-2 rounded-lg bg-brand hover:bg-brand-hover text-white font-medium text-sm transition-all duration-150 cursor-pointer flex items-center gap-1.5 shadow-md shadow-brand/20"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`md:hidden p-1.5 focus:outline-none transition-colors ${
+              scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/90 hover:text-white'
+            }`}
+            aria-label="Abrir menu"
           >
-            <span>Assinar planos</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`md:hidden p-1.5 focus:outline-none transition-colors ${
-            scrolled ? 'text-foreground-muted hover:text-foreground' : 'text-white/90 hover:text-white'
-          }`}
-          aria-label="Abrir menu"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
 
       </div>
 

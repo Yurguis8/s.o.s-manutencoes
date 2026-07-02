@@ -69,7 +69,7 @@ export const PLANS: Plan[] = [
   {
     id: 'essential',
     name: "Plano Essencial",
-    tagline: "Proteção preventiva essencial para apartamentos compactos e ambientes pontuais.",
+    tagline: "Proteção preventiva básica para seus móveis.",
     priceSemiannualMonthly: 49.90,
     priceAnnualMonthly: 49.90,
     totalSemiannual: 299.40,
@@ -85,7 +85,6 @@ export const PLANS: Plan[] = [
       "Inspeção de desgaste dos móveis",
       "Relatório digital da vistoria",
       "Diagnóstico por WhatsApp ilimitado",
-      "Agendamento prioritário",
       "15% de desconto em serviços extras"
     ]
   },
@@ -103,11 +102,11 @@ export const PLANS: Plan[] = [
       "6 inspeções preventivas por ano",
       "1 visita corretiva por ano",
       "Mão de obra gratuita em pequenos reparos",
-      "Cliente paga apenas as peças",
+      "Cliente paga apenas os materiais",
       "Atendimento prioritário em até 48h",
       "Orçamento presencial gratuito",
       "20% de desconto em serviços extras",
-      "Prioridade superior na agenda"
+      "Agendamento prioritário"
     ]
   },
   {
