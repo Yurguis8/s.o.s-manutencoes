@@ -45,21 +45,22 @@ export const Hero: React.FC = () => {
               {...fadeUp(0.1)}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand/90 backdrop-blur-sm border border-brand text-white text-xs font-semibold mb-6 shadow-md shadow-brand/30"
             >
-              <span>Gestão Patrimonial de Marcenaria</span>
+              <span>Manutenção inteligente para sua casa</span>
             </motion.div>
 
             <motion.h1
               {...fadeUp(0.2)}
               className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.12] mb-6 drop-shadow-sm"
             >
-              Proteção contínua para móveis planejados.
+              Seus móveis planejados{' '}
+              <span className="text-brand">sempre no ponto</span>, o ano inteiro.
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.35)}
               className="text-lg text-white/85 font-normal leading-relaxed mb-8 max-w-xl"
             >
-              Assinatura corporativa de vistorias preventivas, calibração mecânica e reparos prioritários para residências e marcenarias de todos os tipos.
+              Assine a manutenção preventiva e tenha técnicos especializados cuidando de portas, gavetas e ferragens — com visitas programadas, atendimento rápido e zero dor de cabeça.
             </motion.p>
 
             <motion.div
@@ -70,7 +71,7 @@ export const Hero: React.FC = () => {
                 onClick={scrollToPlans}
                 className="px-6 py-3.5 rounded-lg bg-brand hover:bg-brand-hover text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brand/40"
               >
-                <span>Conhecer planos de assinatura</span>
+                <span>Ver planos a partir de R$ 49,90</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -78,7 +79,7 @@ export const Hero: React.FC = () => {
                 onClick={scrollToSolution}
                 className="px-6 py-3.5 rounded-lg bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white font-medium text-sm border border-white/30 transition-all duration-300 flex items-center justify-center cursor-pointer"
               >
-                <span>Entender a metodologia</span>
+                <span>Por que isso importa?</span>
               </button>
             </motion.div>
 
@@ -88,15 +89,15 @@ export const Hero: React.FC = () => {
             >
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-brand shrink-0" />
-                <span className="text-xs text-white/80 font-medium">Atendimento em até 24h</span>
+                <span className="text-xs text-white/80 font-medium">Resposta em até 24h</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-brand shrink-0" />
-                <span className="text-xs text-white/80 font-medium">Técnicos homologados</span>
+                <span className="text-xs text-white/80 font-medium">Técnicos certificados</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-brand shrink-0" />
-                <span className="text-xs text-white/80 font-medium">Cobertura multimarcas</span>
+                <span className="text-xs text-white/80 font-medium">Qualquer marca de móvel</span>
               </div>
             </motion.div>
           </div>

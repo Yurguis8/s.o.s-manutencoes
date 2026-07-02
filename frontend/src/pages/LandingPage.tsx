@@ -54,14 +54,14 @@ export const LandingPage: React.FC = () => {
 
       <main>
         <Hero />
-        <HowItWorks />
-        <ProblemSection />
-        <SolutionSection />
-        <ScrollAnimationSection />
+        
+        
+        
         <PlansSection onSubscribe={handleSubscribePlan} />
         <ComparisonTable />
-        <GeneralBenefits />
-        <Testimonials />
+        <ScrollAnimationSection />
+        <HowItWorks />
+        <ProblemSection />
         <FAQSection />
         <CTASection />
       </main>

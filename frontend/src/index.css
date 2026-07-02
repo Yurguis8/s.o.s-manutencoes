@@ -40,10 +40,14 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Marca — amarelo/laranja */
-  --color-brand: #ffa600;
+  --color-brand: #ffbb00;
   --color-brand-hover: #e69500;
   --color-brand-soft: #fff2cc;
-  --color-brand-muted: #ffd166;
+  --color-brand-muted: #ff891a;
+  --color-brand-m: #ffbb00;
+
+  /* Logo SOS */
+  --color-sos: #e52525;
 
   /* Superfícies (light mode) */
   --color-surface: #ffffff;
@@ -51,6 +55,7 @@
   --color-surface-muted: #f5f5f5;
   --color-surface-subtle: #ededed;
   --color-surface-card: #ffffff;
+  --color-sur-p: #ffffff;
 
   /* Bordas */
   --color-border: #d4d4d8;
@@ -64,6 +69,8 @@
   /* Destaque / sucesso */
   --color-accent: #22c55e;
   --color-accent-muted: #16a34a;
+
+  --color-border-1: #ffd900;
 }
 
 body {
@@ -71,6 +78,14 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -83,15 +98,60 @@ body {
   background-color: var(--color-brand);
   color: white;
 }
+
+.shine-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.shine-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.shine-card__sweep {
+  position: absolute;
+  top: -15%;
+  width: 14%;
+  min-width: 36px;
+  max-width: 56px;
+  height: 130%;
+  background: #ffffff;
+  transform: skewX(-22deg);
+  z-index: 2;
+  pointer-events: none;
+  animation: card-shine-sweep 3s linear infinite;
+}
+
+@keyframes card-shine-sweep {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine-card__sweep {
+    animation: none;
+    display: none;
+  }
+}
 .modla{
-  --color: #09090b;
+  --color: #ffeed9;
   --color-surface: #09090b;
   --color-surface-elevated: #121214;
   --color-surface-muted: #18181b;
   --color-surface-subtle: #1f1f23;
   --color-surface-card: #141416;
-   --color-brand: #ffa600;
-  --color-brand-hover: #b68c00;
-  --color-brand-soft: #ffca1a;
-  --color-brand-muted: #ffb84d;
+  --color-brand-m: #ffbb00;
+  --color-brand-hover: #e69500;
+  --color-brand-soft: #fff2cc;
+  --color-brand-muted: #ff891a;
+    --color-foreground: #18181b;
+  --color-foreground-muted: #52525b;
+  --color-foreground-subtle: #71717a;
+   --color-border-1: #ffd900;
 }

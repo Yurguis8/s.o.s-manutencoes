@@ -19,25 +19,25 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
   {
     number: "01",
     title: "Escolha o plano ideal",
-    description: "Selecione a modalidade de cobertura compatível com a dimensão estrutural da sua residência.",
+    description: "Encontre a cobertura certa para o tamanho da sua casa — do apartamento compacto à residência completa.",
     iconName: "FileCheck"
   },
   {
     number: "02",
     title: "Assine online em poucos minutos",
-    description: "Contratação digital corporativa, sem burocracia e com faturamento recorrente automatizado.",
+    description: "Contratação 100% digital, sem papelada. Pagamento recorrente automático e seguro.",
     iconName: "CreditCard"
   },
   {
     number: "03",
     title: "Agende sua primeira vistoria",
-    description: "Nossa equipe técnica certificada realiza o mapeamento, ajuste e catalogação dos móveis.",
+    description: "Nossa equipe vai até você, mapeia os móveis e já faz os primeiros ajustes necessários.",
     iconName: "Calendar"
   },
   {
     number: "04",
-    title: "Aproveite a garantia contínua",
-    description: "Proteção patrimonial permanente com canais prioritários para solicitações corretivas.",
+    title: "Relaxe — nós cuidamos do resto",
+    description: "Proteção contínua com canal prioritário para solicitar reparos sempre que precisar.",
     iconName: "Shield"
   }
 ];
@@ -45,23 +45,23 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
 export const PROBLEM_ITEMS: ProblemItem[] = [
   {
     title: "Portas desalinhadas",
-    description: "Desgaste mecânico nas dobradiças que ocasiona atrito constante e lascas no revestimento."
+    description: "Portas que raspam, não fecham direito ou danificam o acabamento com o atrito constante."
   },
   {
     title: "Gavetas pesadas",
-    description: "Trilhos telescópicos empenados ou sem lubrificação que comprometem a ergonomia diária."
+    description: "Trilhos empenados ou sem lubrificação que travam e dificultam o uso no dia a dia."
   },
   {
     title: "Dobradiças desgastadas",
-    description: "Afrouxamento progressivo por gravidade que gera instabilidade e risco de queda das portas."
+    description: "Ferragens que afrouxam com o tempo e colocam suas portas em risco de queda."
   },
   {
     title: "Ferragens frouxas",
-    description: "Puxadores sem fixação adequada, pistões hidráulicos descalibrados e fixadores oxidados."
+    description: "Puxadores soltos, pistões descalibrados e parafusos oxidados que pioram com o uso."
   },
   {
     title: "Pequenos defeitos",
-    description: "Descolamento de fita de borda e micro-infiltrações iniciais que evoluem para perda estrutural."
+    description: "Fita de borda descolando e infiltrações que, ignorados, viram dano estrutural."
   }
 ];
 
@@ -70,74 +70,97 @@ export const PLANS: Plan[] = [
     id: 'essential',
     name: "Plano Essencial",
     tagline: "Proteção preventiva essencial para apartamentos compactos e ambientes pontuais.",
-    priceSemiannualMonthly: 49,
-    priceAnnualMonthly: 42,
-    totalSemiannual: 294,
-    totalAnnual: 504,
+    priceSemiannualMonthly: 49.90,
+    priceAnnualMonthly: 49.90,
+    totalSemiannual: 299.40,
+    totalAnnual: 598.80,
     benefits: [
-      "1 vistoria preventiva por ano",
-      "Regulagem completa de portas",
-      "Regulagem operacional de gavetas",
-      "Lubrificação técnica de ferragens",
-      "Aperto e calibração de parafusos",
-      "Atendimento prioritário padrão",
-      "10% de desconto em novos serviços extras"
+      "Primeira inspeção em até 30 dias",
+      "2 inspeções preventivas por ano",
+      "Regulagem de portas e gavetas",
+      "Regulagem de dobradiças",
+      "Regulagem de corrediças",
+      "Aperto de parafusos",
+      "Lubrificação das ferragens",
+      "Alinhamento de portas",
+      "Limpeza técnica das ferragens",
+      "Inspeção de desgaste dos móveis",
+      "Relatório digital da vistoria",
+      "Histórico das manutenções",
+      "Diagnóstico por WhatsApp ilimitado",
+      "Agendamento prioritário",
+      "Lembretes automáticos de revisão",
+      "15% de desconto em serviços extras"
     ]
   },
   {
     id: 'casa',
     name: "Plano Casa",
     tagline: "Cobertura completa e prioritária para residências familiares e uso contínuo.",
-    priceSemiannualMonthly: 79,
-    priceAnnualMonthly: 68,
-    totalSemiannual: 474,
-    totalAnnual: 816,
+    priceSemiannualMonthly: 79.90,
+    priceAnnualMonthly: 79.90,
+    totalSemiannual: 479.40,
+    totalAnnual: 958.80,
     isPopular: true,
     benefits: [
-      "Inclui todos os serviços do Plano Essencial",
-      "2 vistorias técnicas presenciais por ano",
-      "1 pequeno reparo corretivo anual incluso",
-      "Troca de ferragens simples (até o limite do plano)",
-      "Prioridade alta no agendamento técnico",
-      "15% de desconto em novos serviços extras"
+      "Tudo do Essencial +",
+      "1 visita corretiva por ano",
+      "Mão de obra gratuita em pequenos reparos",
+      "Cliente paga apenas as peças",
+      "Atendimento prioritário em até 48h",
+      "Orçamento presencial gratuito",
+      "20% de desconto em serviços extras",
+      "Prioridade superior na agenda"
     ]
   },
   {
     id: 'total',
     name: "Plano Total",
     tagline: "Blindagem patrimonial integral para residências de alto padrão e marcenarias amplas.",
-    priceSemiannualMonthly: 119,
-    priceAnnualMonthly: 99,
-    totalSemiannual: 714,
-    totalAnnual: 1188,
+    priceSemiannualMonthly: 129.90,
+    priceAnnualMonthly: 129.90,
+    totalSemiannual: 779.40,
+    totalAnnual: 1558.80,
     benefits: [
-      "Inclui todos os serviços do Plano Casa",
-      "Até 4 vistorias técnicas presenciais por ano",
-      "Atendimento prioritário máximo VIP (24h úteis)",
-      "Limite anual ampliado para substituição de ferragens",
-      "Projeto básico incluso para pequenas adaptações",
-      "20% de desconto em novos serviços extras"
+      "Tudo do Casa +",
+      "Primeira visita em até 15 dias",
+      "2 visitas corretivas por ano",
+      "Atendimento prioritário em até 24h",
+      "25% de desconto em reformas",
+      "Consultoria para conservação dos móveis",
+      "Relatórios técnicos completos",
+      "Prioridade máxima na agenda"
     ]
   }
 ];
 
 export const COMPARISON_FEATURES = [
-  { feature: "Vistorias preventivas presenciais", essential: "1 por ano", casa: "2 por ano", total: "Até 4 por ano" },
-  { feature: "Regulagem de portas e gavetas", essential: true, casa: true, total: true },
-  { feature: "Lubrificação técnica de ferragens", essential: true, casa: true, total: true },
-  { feature: "Nível de prioridade de atendimento", essential: "Padrão", casa: "Alta prioridade", total: "Máxima VIP" },
-  { feature: "Desconto em serviços adicionais", essential: "10%", casa: "15%", total: "20%" },
-  { feature: "Pequeno reparo anual incluso", essential: false, casa: "1 reparo / ano", total: "Incluso em todas visitas" },
-  { feature: "Troca de ferragens simples", essential: false, casa: "Cobertura padrão", total: "Cobertura ampliada" },
-  { feature: "Projeto técnico para adaptações", essential: false, casa: false, total: true },
-  { feature: "Prontuário digital patrimonial", essential: true, casa: true, total: true },
-  { feature: "Gestão dedicada via portal", essential: true, casa: true, total: true },
+  { feature: "Primeira inspeção em até 30 dias", essential: true, casa: true, total: true },
+  { feature: "Inspeções preventivas", essential: true, casa: true, total: true },
+  { feature: "Visitas corretivas", essential: false, casa: true, total: true},
+  { feature: "Regulagem de portas e corrediças", essential: true, casa: true, total: true },
+  { feature: "Regulagem de gavetas e dobradiças", essential: true, casa: true, total: true },
+  { feature: "Alinhamento de portas", essential: true, casa: true, total: true },
+  { feature: "Aperto de parafusos", essential: true, casa: true, total: true },
+  { feature: "Lubrificação das ferragens", essential: true, casa: true, total: true },
+  { feature: "Limpeza técnica das ferragens", essential: true, casa: true, total: true },
+  { feature: "Inspeção de desgaste", essential: true, casa: true, total: true },
+  { feature: "Relatório digital", essential: true, casa: true, total: true },
+  { feature: "Diagnóstico por WhatsApp", essential: true, casa: true, total: true },
+  { feature: "Agendamento prioritário", essential: true, casa: true, total: true },
+  { feature: "Mão de obra para pequenos reparos", essential: false, casa: true, total: true },
+  { feature: "Cliente paga apenas as peças", essential: false, casa: true, total: true },
+  { feature: "Atendimento em até 48h", essential: false, casa: true, total: true },
+  { feature: "Atendimento em até 24h", essential: false, casa: false, total: true },
+  { feature: "15% de desconto em serviços", essential: true, casa: false, total: false },
+  { feature: "20% de desconto em serviços", essential: false, casa: true, total: false },
+  { feature: "25% de desconto em reformas", essential: false, casa: false, total: true }
 ];
 
 export const GENERAL_BENEFITS: BenefitItem[] = [
   {
     title: "Atendimento ágil",
-    description: "Protocolos operacionais padronizados com SLA de resposta em até 24 horas úteis.",
+    description: "Protocolos operacionais padronizados com SLA de resposta em até 24 hours úteis.",
     iconName: "Clock"
   },
   {
@@ -209,8 +232,8 @@ export const FAQS: FAQItem[] = [
     category: "Planos"
   },
   {
-    question: "Existe multa por cancelamento antecipado?",
-    answer: "Não adotamos multas abusivas. Caso decida interromper a assinatura anual antes do término do ciclo, realizamos o cálculo proporcional das vistorias técnicas já efetuadas e restituímos o saldo remanescente conforme os termos de serviço corporativos.",
+    question: "É possível cancelar antes do término do contrato?",
+    answer: "Não. Nossos planos possuem vigência de 6 ou 12 meses e funcionam como a contratação de um pacote de serviços com pagamento recorrente. Ao assinar, você contrata todo o período escolhido, realizando o pagamento de forma parcelada. Por esse motivo, não é possível o cancelamento antecipado durante a vigência do contrato. Ao final do período contratado, você poderá optar pela renovação ou pelo encerramento da assinatura.",
     category: "Planos"
   },
   {
@@ -229,4 +252,3 @@ export const FAQS: FAQItem[] = [
     category: "Pagamento"
   }
 ];
-

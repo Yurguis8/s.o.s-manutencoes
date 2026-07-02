@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const FRAME_COUNT = 41;
+const FRAME_COUNT = 34;
 const SCROLL_HEIGHT_VH = 280;
 
 /**

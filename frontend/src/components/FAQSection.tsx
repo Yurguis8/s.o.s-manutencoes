@@ -33,9 +33,9 @@ export const FAQSection: React.FC = () => {
                 href="https://wa.me/5511998823456?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20planos%20corporativos%20customizados."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-semibold text-brand hover:text-brand-muted transition-colors duration-300"
+                className="text-xs font-semibold text-brand-muted hover:text-brand transition-colors duration-300"
               >
-                Falar com consultor corporativo →
+                Falar com consultor →
               </a>
             </div>
           </Reveal>

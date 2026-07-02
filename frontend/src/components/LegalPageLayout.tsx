@@ -18,7 +18,8 @@ export const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ document }) =>
               S
             </div>
             <span className="text-base font-semibold text-foreground tracking-tight">
-              S.O.S <span className="text-foreground-subtle font-normal">Manutenções</span>
+              <span className="text-sos">S.O.S</span>{' '}
+              <span className="text-foreground-subtle font-normal">Manutenções</span>
             </span>
           </Link>
           <Link

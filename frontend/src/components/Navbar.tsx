@@ -23,17 +23,13 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const navLinkClass = scrolled
-    ? 'text-sm font-medium text-foreground-muted hover:text-foreground transition-colors focus:outline-none cursor-pointer'
-    : 'text-sm font-medium text-white/80 hover:text-white transition-colors focus:outline-none cursor-pointer';
-
-  const logoClass = scrolled
-    ? 'text-lg font-semibold tracking-tight text-foreground'
-    : 'text-lg font-semibold tracking-tight text-white';
-
   const logoMutedClass = scrolled
     ? 'text-foreground-subtle font-normal'
     : 'text-white/60 font-normal';
+
+  const navLinkClass = scrolled
+    ? 'text-sm font-medium text-foreground-muted hover:text-foreground transition-colors focus:outline-none cursor-pointer'
+    : 'text-sm font-medium text-white/80 hover:text-white transition-colors focus:outline-none cursor-pointer';
 
   return (
     <header
@@ -46,8 +42,15 @@ export const Navbar: React.FC = () => {
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
 
         <Link to="/" className="flex items-center gap-2.5 focus:outline-none">
-          <span className={logoClass}>
-            S.O.S <span className={logoMutedClass}>Manutenções</span>
+          <span className="font-semibold tracking-tight">
+            <span
+              className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
+                scrolled ? 'text-sos' : 'text-brand'
+              }`}
+            >
+              S.O.S
+            </span>{' '}
+            <span className={`text-lg ${logoMutedClass}`}>Manutenções</span>
           </span>
         </Link>
 
@@ -107,21 +110,20 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-surface-elevated border-b border-border px-6 pt-4 pb-6 mt-3.5 shadow-xl">
           <div className="flex flex-col gap-4">
-            <button onClick={() => scrollToSection('como-funciona')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
-              Como funciona
-            </button>
-            <button onClick={() => scrollToSection('problema')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
-              Problema e Solução
-            </button>
             <button onClick={() => scrollToSection('planos')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Planos e Preços
             </button>
             <button onClick={() => scrollToSection('comparativo')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Comparativo
             </button>
-            <button onClick={() => scrollToSection('depoimentos')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
-              Depoimentos
+            <button onClick={() => scrollToSection('como-funciona')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
+              Como funciona
             </button>
+            <button onClick={() => scrollToSection('problema')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
+              Problema e Solução
+            </button>
+            
+            
             <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Perguntas Frequentes
             </button>

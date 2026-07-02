@@ -21,11 +21,9 @@ export const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border">
             <div className="md:col-span-5">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded bg-brand flex items-center justify-center text-white font-bold text-xs">
-                  S
-                </div>
-                <span className="text-base font-semibold text-foreground tracking-tight">
-                  S.O.S <span className="text-foreground-subtle font-normal">Manutenções</span>
+                <span className="text-base font-semibold tracking-tight">
+                  <span className="text-sos">S.O.S</span>{' '}
+                  <span className="text-foreground-subtle font-normal">Manutenções</span>
                 </span>
               </div>
 

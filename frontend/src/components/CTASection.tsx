@@ -11,7 +11,7 @@ export const CTASection: React.FC = () => {
 
   return (
     <section className="py-24 bg-brand text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand to-brand-hover opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-m via-brand-m to-brand-m opacity-90" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_60%)]" />
 
       <div className="relative max-w-[1200px] mx-auto px-6 text-center">
