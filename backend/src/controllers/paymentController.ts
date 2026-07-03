@@ -23,10 +23,10 @@ const PLANS_MAP = {
   essential: {
     name: 'Plano Essencial',
     // Valor mensal equivalente a cada ciclo
-    semiannualMonthly: 49,   // R$294 / 6 = R$49/mês
-    annualMonthly: 42,       // R$504 / 12 = R$42/mês
-    semiannualTotal: 294,
-    annualTotal: 504
+    semiannualMonthly: 1,   // R$294 / 6 = R$49/mês
+    annualMonthly: 1,       // R$504 / 12 = R$42/mês
+    semiannualTotal: 1,
+    annualTotal: 1
   },
   casa: {
     name: 'Plano Casa',
@@ -87,7 +87,7 @@ export const paymentController = {
         : planConfig.semiannualTotal;
 
       // Número de parcelas mensais do ciclo (6 meses = 6 cobranças; 12 meses = 12 cobranças)
-      const repetitions = billingCycle === 'annual' ? 12 : 6;
+      const repetitions = billingCycle === 'annual' ? 1 : 1;
 
       const id = crypto.randomUUID();
       const now = new Date().toISOString();
