@@ -23,10 +23,10 @@ const PLANS_MAP = {
   essential: {
     name: 'Plano Essencial',
     // Valor mensal equivalente a cada ciclo
-    semiannualMonthly: 1,   // R$294 / 6 = R$49/mês
-    annualMonthly: 1,       // R$504 / 12 = R$42/mês
-    semiannualTotal: 1,
-    annualTotal: 1
+    semiannualMonthly: 10,   // R$294 / 6 = R$49/mês
+    annualMonthly: 10,       // R$504 / 12 = R$42/mês
+    semiannualTotal: 10,
+    annualTotal: 10
   },
   casa: {
     name: 'Plano Casa',
