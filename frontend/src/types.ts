@@ -48,3 +48,12 @@ export interface FAQItem {
 export type BillingCycle = 'semiannual' | 'annual';
 export type PaymentGateway = 'stripe' | 'asaas' | 'mercadopago';
 
+export interface HardwareProduct {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  sku: string;
+  category: string;
+  imageUrl: string;
+}

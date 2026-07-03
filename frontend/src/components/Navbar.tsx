@@ -68,6 +68,9 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollToSection('comparativo')} className={navLinkClass}>
             Comparativo
           </button>
+          <button onClick={() => scrollToSection('loja-ferragens')} className={navLinkClass}>
+            Ferragens
+          </button>
 
           <button onClick={() => scrollToSection('faq')} className={navLinkClass}>
             FAQ
@@ -116,6 +119,9 @@ export const Navbar: React.FC = () => {
             </button>
             <button onClick={() => scrollToSection('comparativo')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Comparativo
+            </button>
+            <button onClick={() => scrollToSection('loja-ferragens')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
+              Loja de ferragens
             </button>
             <button onClick={() => scrollToSection('como-funciona')} className="text-left text-sm font-medium text-foreground-muted hover:text-foreground py-1">
               Como funciona

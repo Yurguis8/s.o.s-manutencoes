@@ -1,4 +1,4 @@
-import { Plan, StepItem, ProblemItem, BenefitItem, TestimonialItem, FAQItem } from '../types';
+import { Plan, StepItem, ProblemItem, BenefitItem, TestimonialItem, FAQItem, HardwareProduct } from '../types';
 
 export const COMPANY_INFO = {
   name: "S.O.S Manutenções",
@@ -36,7 +36,7 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
   },
   {
     number: "04",
-    title: "Relaxe — nós cuidamos do resto",
+    title: "Relaxe — nós cuidamos de tudo",
     description: "Proteção contínua com canal prioritário para solicitar reparos sempre que precisar.",
     iconName: "Shield"
   }
@@ -249,3 +249,88 @@ export const FAQS: FAQItem[] = [
     category: "Pagamento"
   }
 ];
+
+export const PARTNER_INFO = {
+  name: 'AP Móveis Planejados',
+  label: 'Parceria com AP móveis planejados',
+};
+
+export const HARDWARE_PRODUCTS: HardwareProduct[] = [
+  {
+    id: 'dobradica-soft-close',
+    name: 'Dobradiça Copo 35mm Soft Close',
+    description: 'Amortecimento suave para portas de armários. Compatível com padrão Blum.',
+    price: 24.9,
+    sku: 'FER-001',
+    category: 'Dobradiças',
+    imageUrl: 'https://imgur.com/AqhRn84.jpeg',
+  },
+  {
+    id: 'corredica-telescopica',
+    name: 'Corrediça Telescópica 450mm',
+    description: 'Trilho completo com extração total. Suporta até 30 kg por gaveta.',
+    price: 38.5,
+    sku: 'FER-002',
+    category: 'Corrediças',
+    imageUrl: 'https://imgur.com/v5OHOp8.jpeg',
+  },
+  {
+    id: 'pistao-gas',
+    name: 'Pistão a Gás para Portas',
+    description: 'Abertura controlada para portas basculantes e aéreos superiores.',
+    price: 52.0,
+    sku: 'FER-003',
+    category: 'Pistões',
+    imageUrl: 'https://imgur.com/C36YpDS.jpeg',
+  },
+  {
+    id: 'puxador-aluminio',
+    name: 'Puxador Alumínio 128mm',
+    description: 'Acabamento escovado, furação padrão 96mm. Kit com parafusos.',
+    price: 18.9,
+    sku: 'FER-004',
+    category: 'Puxadores',
+    imageUrl: 'https://imgur.com/ycHyJxs.jpeg',
+  },
+  {
+    id: 'kit-parafusos-mdf',
+    name: 'Kit Parafusos MDF 4x40',
+    description: '100 unidades cabeça flangeada para montagem de móveis planejados.',
+    price: 14.5,
+    sku: 'FER-005',
+    category: 'Fixadores',
+    imageUrl: 'https://imgur.com/UIqrgD2.jpeg',
+  },
+  {
+    id: 'organizador-gaveta',
+    name: 'Organizador de Gaveta 60cm',
+    description: 'Divisor interno em plástico resistente para talheres e utensílios.',
+    price: 45.0,
+    sku: 'FER-006',
+    category: 'Acessórios',
+    imageUrl: 'https://imgur.com/8EwSYIk.jpeg',
+  },
+];
+
+const WHATSAPP_STORE_NUMBER = '5511998823456';
+
+export function getHardwareOrderWhatsAppUrl(product: HardwareProduct, quantity: number): string {
+  const unitPrice = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const total = (product.price * quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const message = [
+    'Olá! Vim pelo site da S.O.S Manutenções e gostaria de comprar:',
+    '',
+    `Produto: ${product.name}`,
+    `Código: ${product.sku}`,
+    `Categoria: ${product.category}`,
+    `Quantidade: ${quantity}`,
+    `Valor unitário: ${unitPrice}`,
+    `Total: ${total}`,
+    '',
+    `Parceria: ${PARTNER_INFO.name}`,
+    '',
+    'Poderiam confirmar disponibilidade, prazo e forma de pagamento?',
+  ].join('\n');
+
+  return `https://wa.me/${WHATSAPP_STORE_NUMBER}?text=${encodeURIComponent(message)}`;
+}

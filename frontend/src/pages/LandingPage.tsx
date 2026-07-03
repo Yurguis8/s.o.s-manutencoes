@@ -16,6 +16,7 @@ import { Footer } from '../components/Footer';
 import { SubscribeModal } from '../components/SubscribeModal';
 import { PaymentFeedbackModal } from '../components/PaymentFeedbackModal';
 import { CancellationSection } from '../components/CancellationSection';
+import { HardwareStoreSection } from '../components/HardwareStoreSection';
 
 export const LandingPage: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
@@ -63,6 +64,7 @@ export const LandingPage: React.FC = () => {
         <ScrollAnimationSection />
         <HowItWorks />
         <ProblemSection />
+        <HardwareStoreSection />
         <FAQSection />
         <CTASection />
         <CancellationSection />
