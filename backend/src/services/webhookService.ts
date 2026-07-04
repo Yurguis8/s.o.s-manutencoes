@@ -56,13 +56,16 @@ export function getWebhookTopic(payload: WebhookPayload): string | undefined {
 }
 
 async function syncSubscriptionRecord(
-  client: MercadoPagoConfig,
+  _client: MercadoPagoConfig,
   record: SubscriptionRecord,
   mpId: string,
   details: any
 ): Promise<void> {
   record.status = details.status || record.status;
   record.preapprovalId = details.id || record.preapprovalId;
+  if (details.payer_email) {
+    record.payer.mpEmail = details.payer_email;
+  }
   record.updatedAt = new Date().toISOString();
   await dbService.save(record);
 }

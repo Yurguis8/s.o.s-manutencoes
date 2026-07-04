@@ -17,6 +17,7 @@ export interface SubscriptionRecord {
   payer: {
     name: string;
     email: string;
+    mpEmail?: string;
     phone: string;
     address: string;
   };
@@ -44,7 +45,8 @@ function mapRowToRecord(row: any): SubscriptionRecord {
     billingCycle: row.billing_cycle,
     payer: {
       name: row.payer_name || '',
-      email: row.payer_email,
+      email: row.payer_email || '',
+      mpEmail: row.payer_mp_email || undefined,
       phone: row.payer_phone || '',
       address: row.payer_address || ''
     },
@@ -144,8 +146,17 @@ export const dbService = {
       );
     `;
 
+    const mpPlansDdl = `
+      CREATE TABLE IF NOT EXISTS mp_preapproval_plans (
+        plan_key VARCHAR(100) PRIMARY KEY,
+        mp_plan_id VARCHAR(255) NOT NULL UNIQUE,
+        created_at VARCHAR(255) NOT NULL
+      );
+    `;
+
     await executeCommand(ddl);
-    console.log('[Database] Tabela de assinaturas inicializada.');
+    await executeCommand(mpPlansDdl);
+    console.log('[Database] Tabelas de assinaturas e planos MP inicializadas.');
 
     await addColumnIfMissing(
       'ALTER TABLE subscriptions ADD COLUMN accepted_terms BOOLEAN NOT NULL DEFAULT TRUE;',
@@ -166,6 +177,10 @@ export const dbService = {
     await addColumnIfMissing(
       'ALTER TABLE subscriptions ADD COLUMN terms_accepted_at VARCHAR(255);',
       'terms_accepted_at'
+    );
+    await addColumnIfMissing(
+      'ALTER TABLE subscriptions ADD COLUMN payer_mp_email VARCHAR(255);',
+      'payer_mp_email'
     );
 
     await this.migrateFromJsonIfNeeded();
@@ -212,27 +227,48 @@ export const dbService = {
     return rows.length > 0 ? mapRowToRecord(rows[0]) : undefined;
   },
 
+  async getMpPlanId(planKey: string): Promise<string | undefined> {
+    const rows = await executeQuery(
+      'SELECT mp_plan_id FROM mp_preapproval_plans WHERE plan_key = $1',
+      [planKey]
+    );
+    return rows.length > 0 ? rows[0].mp_plan_id : undefined;
+  },
+
+  async saveMpPlan(planKey: string, mpPlanId: string): Promise<void> {
+    const now = new Date().toISOString();
+    const sql = `
+      INSERT INTO mp_preapproval_plans (plan_key, mp_plan_id, created_at)
+      VALUES ($1, $2, $3)
+      ON CONFLICT (plan_key) DO UPDATE SET
+        mp_plan_id = $2,
+        created_at = $3
+    `;
+    await executeCommand(sql, [planKey, mpPlanId, now]);
+  },
+
   async save(record: SubscriptionRecord): Promise<void> {
     const sql = `
       INSERT INTO subscriptions (
         id, plan_id, billing_cycle,
-        payer_name, payer_email, payer_phone, payer_address,
+        payer_name, payer_email, payer_mp_email, payer_phone, payer_address,
         amount, status, preapproval_id, init_point, accepted_terms,
         terms_version, client_ip, user_agent, terms_accepted_at,
         created_at, updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
       ON CONFLICT (id) DO UPDATE SET
         plan_id = $2,
         billing_cycle = $3,
         payer_name = $4,
         payer_email = $5,
-        payer_phone = $6,
-        payer_address = $7,
-        amount = $8,
-        status = $9,
-        preapproval_id = $10,
-        init_point = $11,
-        updated_at = $18
+        payer_mp_email = $6,
+        payer_phone = $7,
+        payer_address = $8,
+        amount = $9,
+        status = $10,
+        preapproval_id = $11,
+        init_point = $12,
+        updated_at = $19
     `;
     const acceptedTermsValue = record.acceptedTerms !== undefined ? record.acceptedTerms : true;
     const params = [
@@ -241,6 +277,7 @@ export const dbService = {
       record.billingCycle,
       record.payer.name,
       record.payer.email,
+      record.payer.mpEmail || null,
       record.payer.phone,
       record.payer.address,
       record.amount,

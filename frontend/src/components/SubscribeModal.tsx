@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plan, BillingCycle } from '../types';
+import { getMpDeviceSessionId } from '../utils/mercadopago';
 import { X, ShieldCheck, Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface SubscribeModalProps {
@@ -19,7 +20,6 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
     email: '',
     phone: '',
     address: '',
-    paymentMethod: 'credit_card'
   });
 
   if (!plan) return null;
@@ -52,6 +52,7 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
             phone: formData.phone,
             address: formData.address,
           },
+          deviceSessionId: getMpDeviceSessionId(),
           acceptedTerms: true,
           termsVersion: "Termos v1.0 | Privacidade v1.0 | Consentimento v1.0 | Adesão v1.0"
         }),
@@ -125,31 +126,33 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-medium text-foreground-muted mb-1">E-mail corporativo</label>
-                <input 
-                  required
-                  disabled={loading}
-                  type="email" 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  placeholder="joao@empresa.com.br"
-                  className="w-full px-3 py-2 rounded-lg border border-border text-sm text-foreground focus:outline-none focus:border-brand transition-colors bg-surface disabled:bg-surface-muted disabled:text-foreground-subtle"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-foreground-muted mb-1">WhatsApp para vistorias</label>
-                <input 
-                  required
-                  disabled={loading}
-                  type="tel" 
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  placeholder="(11) 99999-9999"
-                  className="w-full px-3 py-2 rounded-lg border border-border text-sm text-foreground focus:outline-none focus:border-brand transition-colors bg-surface disabled:bg-surface-muted disabled:text-foreground-subtle"
-                />
-              </div>
+            <div>
+              <label className="block text-xs font-medium text-foreground-muted mb-1">E-mail para contato</label>
+              <input 
+                required
+                disabled={loading}
+                type="email" 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                placeholder="joao@email.com"
+                className="w-full px-3 py-2 rounded-lg border border-border text-sm text-foreground focus:outline-none focus:border-brand transition-colors bg-surface disabled:bg-surface-muted disabled:text-foreground-subtle"
+              />
+              <p className="mt-1 text-[10px] text-foreground-subtle leading-relaxed">
+                Usamos para confirmações e agendamento de vistorias. No pagamento, você pode usar qualquer e-mail da sua conta Mercado Pago.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-xs font-medium text-foreground-muted mb-1">WhatsApp para vistorias</label>
+              <input 
+                required
+                disabled={loading}
+                type="tel" 
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                placeholder="(11) 99999-9999"
+                className="w-full px-3 py-2 rounded-lg border border-border text-sm text-foreground focus:outline-none focus:border-brand transition-colors bg-surface disabled:bg-surface-muted disabled:text-foreground-subtle"
+              />
             </div>
 
             <div>

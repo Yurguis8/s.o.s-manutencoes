@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import paymentRoutes from './routes/paymentRoutes.js';
+import { initializeMpPlans } from './controllers/paymentController.js';
 import { dbService } from './services/dbService.js';
 import { getAppUrl, getWebhookUrl } from './config/appUrls.js';
 
@@ -32,6 +33,7 @@ console.log("NODE_ENV:", process.env.NODE_ENV);
 app.use('/api/payments', paymentRoutes);
 
 dbService.initializeDatabase()
+  .then(() => initializeMpPlans())
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
