@@ -2,14 +2,14 @@ import { Request, Response } from 'express';
 import { MercadoPagoConfig, PreApproval } from 'mercadopago';
 import { dbService, SubscriptionRecord } from '../services/dbService.js';
 import { getClientIp, getUserAgent } from '../utils/requestMeta.js';
-import { getAppUrl } from '../config/appUrls.js';
 import {
   parseWebhookPayload,
   processWebhookNotification,
   validateWebhookSignature,
   isInvalidWebhookSignature,
 } from '../services/webhookService.js';
-import { getMpCheckoutUrl } from '../utils/mpCheckout.js';
+import { mpPlanService } from '../services/mpPlanService.js';
+import { getPlanCheckoutUrl } from '../utils/mpCheckout.js';
 import {
   BillingCycle,
   PlanId,
@@ -27,19 +27,14 @@ const client = new MercadoPagoConfig({
   accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN || '',
 });
 
-function buildSubscriptionReason(planName: string, billingCycle: BillingCycle): string {
-  const cycleLabel = billingCycle === 'annual' ? 'Anual' : 'Semestral';
-  return `SOS - ${planName} - ${cycleLabel}`.substring(0, 40);
-}
-
 export const paymentController = {
   /**
-   * Reutiliza um plano MP existente, cria a assinatura com dados do pagador
-   * e retorna o link de checkout individual.
+   * Reutiliza um plano MP em cache e redireciona o cliente ao checkout hospedado.
+   * A assinatura individual só é criada no MP quando o cliente conclui o pagamento.
    */
   async createSubscription(req: Request, res: Response): Promise<void> {
     try {
-      const { planId, billingCycle, payer, acceptedTerms, termsVersion, deviceSessionId } = req.body;
+      const { planId, billingCycle, payer, acceptedTerms, termsVersion } = req.body;
 
       if (!planId || !billingCycle || !payer || !payer.name || !payer.email || !payer.phone) {
         res.status(400).json({ error: 'Parâmetros planId, billingCycle, payer.name, payer.email e payer.phone são obrigatórios.' });
@@ -58,35 +53,15 @@ export const paymentController = {
 
       const typedPlanId = planId as PlanId;
       const typedBillingCycle = billingCycle as BillingCycle;
-      const { planConfig, totalPrice, monthlyPrice } = getPlanPricing(typedPlanId, typedBillingCycle);
+      const { totalPrice } = getPlanPricing(typedPlanId, typedBillingCycle);
 
       const id = crypto.randomUUID();
       const now = new Date().toISOString();
       const clientIp = getClientIp(req);
       const userAgent = getUserAgent(req);
-      const appUrl = getAppUrl();
 
-      const preapproval = new PreApproval(client);
-      const response = await preapproval.create({
-        body: {
-          external_reference: id,
-          reason: buildSubscriptionReason(planConfig.name, typedBillingCycle),
-          back_url: `${appUrl}/`,
-          status: 'pending',
-          auto_recurring: {
-            frequency: 1,
-            frequency_type: 'months',
-            transaction_amount: monthlyPrice,
-            currency_id: 'BRL',
-          },
-        },
-        requestOptions: deviceSessionId ? { meliSessionId: deviceSessionId } : undefined,
-      });
-
-      const checkoutUrl = getMpCheckoutUrl(response as { init_point?: string; sandbox_init_point?: string });
-      if (!response.id || !checkoutUrl) {
-        throw new Error('Mercado Pago não retornou assinatura ou link de checkout.');
-      }
+      const mpPlanId = await mpPlanService.getOrCreatePlanId(client, typedPlanId, typedBillingCycle);
+      const checkoutUrl = getPlanCheckoutUrl(mpPlanId);
 
       const newSubscription: SubscriptionRecord = {
         id,
@@ -100,7 +75,7 @@ export const paymentController = {
         },
         amount: totalPrice,
         status: 'pending',
-        preapprovalId: response.id,
+        mpPlanId,
         initPoint: checkoutUrl,
         acceptedTerms: acceptedTerms === true,
         termsVersion: termsVersion || DEFAULT_TERMS_VERSION,
@@ -114,12 +89,12 @@ export const paymentController = {
       await dbService.save(newSubscription);
 
       console.log(
-        `[Mercado Pago] Assinatura criada. Local: ${newSubscription.id}, MP: ${response.id}, Pagador: ${payer.name}`
+        `[Mercado Pago] Checkout gerado. Local: ${newSubscription.id}, Plano MP: ${mpPlanId}, Pagador: ${payer.name}`
       );
 
       res.status(201).json({
         id: newSubscription.id,
-        preapprovalId: response.id,
+        mpPlanId,
         checkoutUrl,
         status: newSubscription.status,
       });
@@ -190,6 +165,7 @@ export const paymentController = {
 
       res.json({
         id: record.id,
+        mpPlanId: record.mpPlanId,
         preapprovalId: record.preapprovalId,
         planId: record.planId,
         billingCycle: record.billingCycle,
@@ -210,5 +186,10 @@ export const paymentController = {
 };
 
 export async function initializeMpPlans(): Promise<void> {
-  // Planos MP em cache não são usados no checkout atual (assinatura avulsa com init_point).
+  if (!process.env.MERCADO_PAGO_ACCESS_TOKEN) {
+    console.warn('[MP Plan] MERCADO_PAGO_ACCESS_TOKEN ausente — planos não serão pré-criados.');
+    return;
+  }
+
+  await mpPlanService.ensureAllPlans(client);
 }

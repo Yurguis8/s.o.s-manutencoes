@@ -23,6 +23,7 @@ export interface SubscriptionRecord {
   };
   amount: number;
   status: string;
+  mpPlanId?: string;
   preapprovalId?: string;
   initPoint?: string;
   acceptedTerms?: boolean;
@@ -52,6 +53,7 @@ function mapRowToRecord(row: any): SubscriptionRecord {
     },
     amount: Number(row.amount),
     status: row.status,
+    mpPlanId: row.mp_plan_id || undefined,
     preapprovalId: row.preapproval_id || undefined,
     initPoint: row.init_point || undefined,
     acceptedTerms: row.accepted_terms === 1 || row.accepted_terms === true || row.accepted_terms === 'true',
@@ -182,6 +184,10 @@ export const dbService = {
       'ALTER TABLE subscriptions ADD COLUMN payer_mp_email VARCHAR(255);',
       'payer_mp_email'
     );
+    await addColumnIfMissing(
+      'ALTER TABLE subscriptions ADD COLUMN mp_plan_id VARCHAR(255);',
+      'mp_plan_id'
+    );
 
     await this.migrateFromJsonIfNeeded();
   },
@@ -227,6 +233,26 @@ export const dbService = {
     return rows.length > 0 ? mapRowToRecord(rows[0]) : undefined;
   },
 
+  async getPendingByMpPlanId(mpPlanId: string, mpPayerEmail?: string): Promise<SubscriptionRecord | undefined> {
+    const rows = await executeQuery(
+      `SELECT * FROM subscriptions
+       WHERE mp_plan_id = $1 AND status = 'pending' AND preapproval_id IS NULL
+       ORDER BY created_at DESC`,
+      [mpPlanId]
+    );
+    if (rows.length === 0) return undefined;
+    if (rows.length === 1) return mapRowToRecord(rows[0]);
+
+    if (mpPayerEmail) {
+      const byContactEmail = rows.find(
+        (row) => String(row.payer_email || '').toLowerCase() === mpPayerEmail.toLowerCase()
+      );
+      if (byContactEmail) return mapRowToRecord(byContactEmail);
+    }
+
+    return mapRowToRecord(rows[0]);
+  },
+
   async getMpPlanId(planKey: string): Promise<string | undefined> {
     const rows = await executeQuery(
       'SELECT mp_plan_id FROM mp_preapproval_plans WHERE plan_key = $1',
@@ -252,10 +278,10 @@ export const dbService = {
       INSERT INTO subscriptions (
         id, plan_id, billing_cycle,
         payer_name, payer_email, payer_mp_email, payer_phone, payer_address,
-        amount, status, preapproval_id, init_point, accepted_terms,
+        amount, status, mp_plan_id, preapproval_id, init_point, accepted_terms,
         terms_version, client_ip, user_agent, terms_accepted_at,
         created_at, updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
       ON CONFLICT (id) DO UPDATE SET
         plan_id = $2,
         billing_cycle = $3,
@@ -266,9 +292,10 @@ export const dbService = {
         payer_address = $8,
         amount = $9,
         status = $10,
-        preapproval_id = $11,
-        init_point = $12,
-        updated_at = $19
+        mp_plan_id = $11,
+        preapproval_id = $12,
+        init_point = $13,
+        updated_at = $20
     `;
     const acceptedTermsValue = record.acceptedTerms !== undefined ? record.acceptedTerms : true;
     const params = [
@@ -282,6 +309,7 @@ export const dbService = {
       record.payer.address,
       record.amount,
       record.status,
+      record.mpPlanId || null,
       record.preapprovalId || null,
       record.initPoint || null,
       isPostgres ? acceptedTermsValue : (acceptedTermsValue ? 1 : 0),

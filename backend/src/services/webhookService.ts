@@ -110,10 +110,13 @@ export async function processWebhookNotification(
 
   const planId = details.preapproval_plan_id || details.preapprovalPlanId;
   const extRef = details.external_reference || details.externalReference;
+  const mpPayerEmail = details.payer_email || details.payerEmail;
 
   let record = await dbService.getByPreapprovalId(resourceId);
-  if (!record && planId) record = await dbService.getByPreapprovalId(planId);
-  if (!record && extRef) record = await dbService.getById(extRef);
+  if (!record && extRef) record = await dbService.getById(String(extRef));
+  if (!record && planId) {
+    record = await dbService.getPendingByMpPlanId(planId, mpPayerEmail);
+  }
 
   if (!record) {
     console.log(`[Webhook] Registro local não encontrado. MP ID: ${resourceId}, Plan: ${planId}, Ref: ${extRef}`);
