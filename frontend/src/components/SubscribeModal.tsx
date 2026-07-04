@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plan, BillingCycle } from '../types';
 import { getMpDeviceSessionId } from '../utils/mercadopago';
+import { formatPrice } from '../utils/formatPrice';
+import { MercadoPagoTrustBadge } from './MercadoPagoTrustBadge';
 import { X, ShieldCheck, Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface SubscribeModalProps {
@@ -107,8 +109,8 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               <p className="text-xs text-foreground-subtle mt-0.5">Ciclo {cycleLabel}</p>
             </div>
             <div className="text-right">
-              <div className="text-lg font-bold text-foreground">R$ {monthlyPrice}<span className="text-xs font-normal text-foreground-subtle">/mês</span></div>
-              <div className="text-[11px] text-foreground-subtle font-mono">Total: R$ {cycleTotal}</div>
+              <div className="text-lg font-bold text-foreground">R$ {formatPrice(monthlyPrice)}<span className="text-xs font-normal text-foreground-subtle">/mês</span></div>
+              <div className="text-[11px] text-foreground-subtle font-mono">Total: R$ {formatPrice(cycleTotal)}</div>
             </div>
           </div>
 
@@ -169,6 +171,8 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               />
             </div>
           </div>
+
+          <MercadoPagoTrustBadge className="mb-4" />
 
           {/* Seção de Termos e Contrato */}
           <div className="mt-4 space-y-2 border-t border-border pt-4">
@@ -267,14 +271,17 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
                 </>
               ) : (
                 <>
-                  <span>Prosseguir para pagamento</span>
+                  <span>Continuar no Mercado Pago</span>
                 </>
               )}
             </button>
           </div>
 
-          <div className="mt-4 text-center text-[10px] text-foreground-subtle">
-            Ambiente homologado · Conexão SSL 256-bit · Prontuário gerado automaticamente
+          <div className="mt-4 flex flex-col items-center gap-2">
+            <MercadoPagoTrustBadge variant="compact" />
+            <p className="text-center text-[10px] text-foreground-subtle">
+              Conexão SSL · Prontuário gerado automaticamente
+            </p>
           </div>
 
         </form>

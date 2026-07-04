@@ -5,6 +5,7 @@ import { Plan, BillingCycle } from '../types';
 import { Check, ArrowRight } from 'lucide-react';
 import { Reveal, RevealStagger, RevealStaggerItem } from './Reveal';
 import { APPLE_EASE_OUT } from './Reveal';
+import { MercadoPagoTrustBadge } from './MercadoPagoTrustBadge';
 
 interface PlansSectionProps {
   onSubscribe: (plan: Plan, billingCycle: BillingCycle) => void;
@@ -125,8 +126,8 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, billingCycle, onSubscribe }) 
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
-            <div className="mt-2.5 text-center text-[10px] text-foreground-subtle">
-              Garantia técnica e cancelamento simplificado
+            <div className="mt-2.5 flex justify-center">
+              <MercadoPagoTrustBadge variant="compact" />
             </div>
           </div>
         </div>
@@ -195,6 +196,10 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
             </RevealStaggerItem>
           ))}
         </RevealStagger>
+
+        <Reveal className="mt-10 flex justify-center">
+          <MercadoPagoTrustBadge className="max-w-xl" />
+        </Reveal>
       </div>
     </section>
   );
