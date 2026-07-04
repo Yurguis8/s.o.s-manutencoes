@@ -1,24 +1,24 @@
 export const PLANS_MAP = {
   essential: {
     name: 'Plano Essencial',
-    semiannualMonthly: 29.9,
-    annualMonthly: 25.42,
-    semiannualTotal: 179.4,
-    annualTotal: 305.04,
+    semiannualMonthly: 39.90,
+    annualMonthly: 35.90,
+    semiannualTotal: 239.40,
+    annualTotal: 430.80,
   },
   casa: {
     name: 'Plano Casa',
-    semiannualMonthly: 79.9,
-    annualMonthly: 67.92,
-    semiannualTotal: 479.4,
-    annualTotal: 815.04,
+    semiannualMonthly: 59.90,
+    annualMonthly: 53.90,
+    semiannualTotal: 359.40,
+    annualTotal: 646.80,
   },
   total: {
     name: 'Plano Total',
-    semiannualMonthly: 129.9,
-    annualMonthly: 110.42,
-    semiannualTotal: 779.4,
-    annualTotal: 1325.04,
+    semiannualMonthly: 99.90,
+    annualMonthly: 89.90,
+    semiannualTotal: 599.40,
+    annualTotal: 1078.80,
   },
 } as const;
 

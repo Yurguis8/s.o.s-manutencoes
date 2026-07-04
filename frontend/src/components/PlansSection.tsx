@@ -177,9 +177,9 @@ export const PlansSection: React.FC<PlansSectionProps> = ({ onSubscribe }) => {
             >
               <span>Plano Anual</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${
-                billingCycle === 'annual' ? 'bg-black/30 text-accent' : 'bg-accent/10 text-accent'
+                billingCycle === 'annual' ? 'bg-gray-100 text-accent' : 'bg-accent/10 text-accent'
               }`}>
-                15% off
+                10% off
               </span>
             </button>
           </div>

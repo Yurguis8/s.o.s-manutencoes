@@ -6,7 +6,7 @@ export const COMPANY_INFO = {
   phone: "(11) 4002-8922",
   whatsapp: "(11) 99882-3456",
   whatsappUrl: "https://wa.me/5511998823456?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20assinatura%20da%20S.O.S%20Manuten%C3%A7%C3%B5es.",
-  email: "contato@sosmanutencoes.com.br",
+  email: "sosmautencoes.faleconosco@gmail.com.br",
   address: "Rua Maria Alves Damaceno - Ipirá - Bahia, BA",
   socials: {
     instagram: "https://instagram.com",
@@ -70,63 +70,63 @@ export const PLANS: Plan[] = [
     id: 'essential',
     name: "Plano Essencial",
     tagline: "Proteção preventiva básica para seus móveis.",
-    priceSemiannualMonthly: 29.90,
-    priceAnnualMonthly: 25.42,
-    totalSemiannual: 179.40,
-    totalAnnual: 305.04,
+    priceSemiannualMonthly: 39.90,
+    priceAnnualMonthly: 35.90, // Arredondado para ficar comercial
+    totalSemiannual: 239.40,     // 39.90 * 6
+    totalAnnual: 430.80,
     benefits: [
       "Primeira inspeção em até 30 dias",
-      "4 inspeções preventivas por ano",
-      "Regulagem de portas e gavetas",
-      "Regulagem de dobradiças e corrediças",
-      "Aperto de parafusos",
-      "Lubrificação e limpeza das ferragens",
-      "Alinhamento de portas",
-      "Inspeção de desgaste dos móveis",
+      "2 inspeções preventivas por semestre",
+      "Manutenção básica (portas, gavetas, dobradiças e corrediças)",
+      "Aperto de parafusos e lubrificação de ferragens",
+      "Mão de obra gratuita em pequenos reparos",
+      "Kit de limpeza",
       "Relatório digital da vistoria",
-      "Diagnóstico por WhatsApp ilimitado",
-      "15% de desconto em serviços extras"
+      "Diagnóstico por WhatsApp",
+      "10% de desconto em grandes serviços"
     ]
   },
   {
     id: 'casa',
     name: "Plano Casa",
-    tagline: "Cobertura completa e prioritária para residências familiares e uso contínuo.",
-    priceSemiannualMonthly: 79.90,
-    priceAnnualMonthly: 67.92,
-    totalSemiannual: 479.40,
-    totalAnnual: 815.04,
+    tagline: "Cobertura completa para residências familiares.",
+    priceSemiannualMonthly: 59.90,
+    priceAnnualMonthly: 53.90, // Arredondado para ficar comercial
+    totalSemiannual: 359.40,     // 59.90 * 6
+    totalAnnual: 646.80,
     isPopular: true,
     benefits: [
-      "Tudo do Essencial +",
-      "6 inspeções preventivas por ano",
-      "1 visita corretiva por ano",
-      "Mão de obra gratuita em pequenos reparos",
-      "Cliente paga apenas os materiais",
-      "Atendimento prioritário em até 48h",
-      "Orçamento presencial gratuito",
-      "20% de desconto em serviços extras",
-      "Agendamento prioritário"
+      "Primeira inspeção em até 30 dias",
+      "3 inspeções preventivas por semestre (Mais visitas)",
+      "Todos os serviços de manutenção e reparo do Essencial",
+      "Atendimento prioritário em até 24h",
+      "Orçamento presencial gratuito para novos projetos",
+      "Kit de limpeza",
+      "Relatório digital da vistoria",
+      "Diagnóstico por WhatsApp",
+      "Participação em 6 sorteios anuais",
+      "15% de desconto em grandes serviços"
     ]
   },
   {
     id: 'total',
     name: "Plano Total",
-    tagline: "Blindagem patrimonial integral para residências de alto padrão e marcenarias amplas.",
-    priceSemiannualMonthly: 129.90,
-    priceAnnualMonthly: 110.42,
-    totalSemiannual: 779.40,
-    totalAnnual: 1325.04,
+    tagline: "Blindagem patrimonial completa para todos os tipos de móveis.",
+    priceSemiannualMonthly: 99.90,
+    priceAnnualMonthly: 89.90, // Arredondado para ficar comercial
+    totalSemiannual: 599.40,     // 99.90 * 6
+    totalAnnual: 1078.80,
     benefits: [
-      "Tudo do Casa +",
       "Primeira visita em até 15 dias",
-      "8 inspeções preventivas por ano",
-      "2 visitas corretivas por ano",
-      "Atendimento prioritário em até 24h",
-      "25% de desconto em reformas",
-      "Consultoria para conservação dos móveis",
-      "Relatórios técnicos completos",
-      "Prioridade máxima na agenda"
+      "4 inspeções preventivas por semestre (Máxima cobertura)",
+      "Todos os serviços de manutenção e reparo do plano Casa",
+      "Prioridade máxima na agenda de atendimento",
+      "Consultoria técnica para grandes projetos",
+      "Kit de limpeza",
+      "Relatório digital da vistoria",
+      "Diagnóstico por WhatsApp",
+      "Participação em 12 sorteios anuais",
+      "20% de desconto em grandes serviços"
     ]
   }
 ];
@@ -134,24 +134,21 @@ export const PLANS: Plan[] = [
 export const COMPARISON_FEATURES = [
   { feature: "Primeira inspeção em até 30 dias", essential: true, casa: true, total: true },
   { feature: "Inspeções preventivas", essential: true, casa: true, total: true },
-  { feature: "Visitas corretivas", essential: false, casa: true, total: true},
+  { feature: "Mão de obra para pequenos reparos", essential: true, casa: true, total: true },
   { feature: "Regulagem de portas e corrediças", essential: true, casa: true, total: true },
   { feature: "Regulagem de gavetas e dobradiças", essential: true, casa: true, total: true },
-  { feature: "Alinhamento de portas", essential: true, casa: true, total: true },
-  { feature: "Aperto de parafusos", essential: true, casa: true, total: true },
-  { feature: "Lubrificação das ferragens", essential: true, casa: true, total: true },
-  { feature: "Limpeza técnica das ferragens", essential: true, casa: true, total: true },
+  { feature: "Alinhamento de portas e aperto de parafusos", essential: true, casa: true, total: true },
+  { feature: "Lubrificação e limpeza das ferragens", essential: true, casa: true, total: true },
   { feature: "Inspeção de desgaste", essential: true, casa: true, total: true },
   { feature: "Relatório digital", essential: true, casa: true, total: true },
   { feature: "Diagnóstico por WhatsApp", essential: true, casa: true, total: true },
-  { feature: "Agendamento prioritário", essential: true, casa: true, total: true },
-  { feature: "Mão de obra para pequenos reparos", essential: false, casa: true, total: true },
+  { feature: "Agendamento prioritário", essential: true, casa: true, total: true }, 
   { feature: "Cliente paga apenas as peças", essential: false, casa: true, total: true },
-  { feature: "Atendimento em até 48h", essential: false, casa: true, total: true },
-  { feature: "Atendimento em até 24h", essential: false, casa: false, total: true },
-  { feature: "15% de desconto em serviços", essential: true, casa: false, total: false },
-  { feature: "20% de desconto em serviços", essential: false, casa: true, total: false },
-  { feature: "25% de desconto em reformas", essential: false, casa: false, total: true }
+  { feature: "Atendimento em até 24h", essential: true, casa: true, total: true },
+  { feature: "Sorteios", essential: false, casa: true, total: true },
+  { feature: "15% de desconto em grandes serviços", essential: true, casa: false, total: false },
+  { feature: "20% de desconto em grandes serviços", essential: false, casa: true, total: false },
+  { feature: "25% de desconto em grandes serviços", essential: false, casa: false, total: true }
 ];
 
 export const GENERAL_BENEFITS: BenefitItem[] = [
