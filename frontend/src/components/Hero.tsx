@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
                 onClick={scrollToPlans}
                 className="px-6 py-3.5 rounded-lg bg-brand hover:bg-brand-hover text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brand/40"
               >
-                <span>Ver planos a partir de R$ 49,90</span>
+                <span>Ver planos a partir de R$ 39,90</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 

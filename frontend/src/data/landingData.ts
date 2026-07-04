@@ -146,9 +146,9 @@ export const COMPARISON_FEATURES = [
   { feature: "Cliente paga apenas as peças", essential: false, casa: true, total: true },
   { feature: "Atendimento em até 24h", essential: true, casa: true, total: true },
   { feature: "Sorteios", essential: false, casa: true, total: true },
-  { feature: "15% de desconto em grandes serviços", essential: true, casa: false, total: false },
-  { feature: "20% de desconto em grandes serviços", essential: false, casa: true, total: false },
-  { feature: "25% de desconto em grandes serviços", essential: false, casa: false, total: true }
+  { feature: "10% de desconto em grandes serviços", essential: true, casa: false, total: false },
+  { feature: "15% de desconto em grandes serviços", essential: false, casa: true, total: false },
+  { feature: "20% de desconto em grandes serviços", essential: false, casa: false, total: true }
 ];
 
 export const GENERAL_BENEFITS: BenefitItem[] = [
