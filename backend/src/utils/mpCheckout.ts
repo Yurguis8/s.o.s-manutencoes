@@ -11,3 +11,10 @@ export function getMpCheckoutUrl(response: {
   }
   return response.init_point || response.sandbox_init_point;
 }
+
+export function getPlanCheckoutUrl(mpPlanId: string): string {
+  const host = isTestAccessToken()
+    ? 'https://sandbox.mercadopago.com.br'
+    : 'https://www.mercadopago.com.br';
+  return `${host}/subscriptions/checkout?preapproval_plan_id=${mpPlanId}`;
+}

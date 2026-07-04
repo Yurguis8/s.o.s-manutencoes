@@ -59,7 +59,8 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
       });
 
       if (!response.ok) {
-        throw new Error('Falha ao criar assinatura no servidor');
+        const errBody = await response.json().catch(() => ({}));
+        throw new Error(errBody.details || errBody.error || 'Falha ao criar assinatura no servidor');
       }
 
       const data = await response.json();

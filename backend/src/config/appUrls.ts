@@ -2,8 +2,15 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+function normalizeBaseUrl(url: string): string {
+  return url
+    .replace(/\/api\/payments\/webhook\/?$/i, '')
+    .replace(/\/$/, '');
+}
+
 export function getBackendUrl(): string {
-  return (process.env.BACKEND_URL || `http://127.0.0.1:${process.env.PORT || 3001}`).replace(/\/$/, '');
+  const raw = process.env.BACKEND_URL || `http://127.0.0.1:${process.env.PORT || 3001}`;
+  return normalizeBaseUrl(raw);
 }
 
 export function getWebhookUrl(): string {
