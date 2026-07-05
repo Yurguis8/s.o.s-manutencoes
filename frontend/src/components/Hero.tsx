@@ -2,8 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Check, ArrowRight } from 'lucide-react';
 import { APPLE_EASE_OUT } from './Reveal';
-/* import img1 from '../img/img2.jpg'; */
-const img1 = "https://imgur.com/a/IZ2aoXy"
+import img1 from '../img/img2.jpg'; 
 export const Hero: React.FC = () => {
   const reduced = useReducedMotion();
 
@@ -30,7 +29,7 @@ export const Hero: React.FC = () => {
     <section
       className="relative min-h-[92vh] flex items-center border-b border-border overflow-hidden"
       style={{
-        backgroundImage: `url("https://i.imgur.com/RUBrpZl.jpeg")`,
+        backgroundImage: `url(${img1}})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

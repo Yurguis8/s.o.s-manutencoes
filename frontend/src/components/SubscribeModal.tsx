@@ -192,7 +192,7 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
                   <p className="mb-2"><strong>1. Objeto:</strong> A S.O.S Manutenções presta serviços preventivos e emergenciais de infraestrutura civil, elétrica e hidráulica residencial conforme o plano contratado.</p>
                   <p className="mb-2"><strong>2. Escopo:</strong> Estão inclusas vistorias técnicas periódicas e atendimento de chamados sob demanda. Serviços fora do escopo do plano serão orçados e cobrados separadamente.</p>
                   <p className="mb-2"><strong>3. Acesso:</strong> O cliente se compromete a fornecer livre acesso ao imóvel nos dias e horários agendados.</p>
-                  <p><strong>4. Rescisão:</strong> O cancelamento antecipado do plano anual está sujeito a multa compensatória de 20% do valor restante das parcelas do contrato.</p>
+                  <p><strong>4. Rescisão:</strong> O cancelamento antecipado do plano anual e semestral está sujeito a multa compensatória de 20% do valor restante das parcelas do contrato.</p>
                 </div>
               )}
             </div>
@@ -229,19 +229,19 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               />
               <label htmlFor="terms" className="text-xs text-foreground-muted select-none cursor-pointer leading-normal">
                 Declaro que li, compreendi e aceito integralmente os{' '}
-                <Link to="/termos" target="_blank" className="text-brand underline font-medium hover:text-brand-muted">
+                <Link to="/termos" className="text-brand underline font-medium hover:text-brand-muted">
                   Termos de Serviço
                 </Link>
                 , a{' '}
-                <Link to="/privacidade" target="_blank" className="text-brand underline font-medium hover:text-brand-muted">
+                <Link to="/privacidade" className="text-brand underline font-medium hover:text-brand-muted">
                   Política de Privacidade
                 </Link>
                 , o{' '}
-                <Link to="/consentimento" target="_blank" className="text-brand underline font-medium hover:text-brand-muted">
+                <Link to="/consentimento" className="text-brand underline font-medium hover:text-brand-muted">
                   Termo de Consentimento
                 </Link>{' '}
                 e o{' '}
-                <Link to="/contrato" target="_blank" className="text-brand underline font-medium hover:text-brand-muted">
+                <Link to="/contrato" className="text-brand underline font-medium hover:text-brand-muted">
                   Contrato de Adesão
                 </Link>{' '}
                 da plataforma.

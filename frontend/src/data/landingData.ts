@@ -80,7 +80,7 @@ export const PLANS: Plan[] = [
       "Manutenção básica (portas, gavetas, dobradiças e corrediças)",
       "Aperto de parafusos e lubrificação de ferragens",
       "Mão de obra gratuita em pequenos reparos",
-      "Kit de limpeza",
+      "Kit de limpeza de brinde",
       "Relatório digital da vistoria",
       "Diagnóstico por WhatsApp",
       "10% de desconto em grandes serviços"
@@ -97,11 +97,11 @@ export const PLANS: Plan[] = [
     isPopular: true,
     benefits: [
       "Primeira inspeção em até 30 dias",
-      "3 inspeções preventivas por semestre (Mais visitas)",
+      "3 inspeções preventivas por semestre",
       "Todos os serviços de manutenção e reparo do Essencial",
       "Atendimento prioritário em até 24h",
       "Orçamento presencial gratuito para novos projetos",
-      "Kit de limpeza",
+      "Kit de limpeza de brinde",
       "Relatório digital da vistoria",
       "Diagnóstico por WhatsApp",
       "Participação em 6 sorteios anuais",
@@ -122,7 +122,7 @@ export const PLANS: Plan[] = [
       "Todos os serviços de manutenção e reparo do plano Casa",
       "Prioridade máxima na agenda de atendimento",
       "Consultoria técnica para grandes projetos",
-      "Kit de limpeza",
+      "Kit de limpeza de brinde",
       "Relatório digital da vistoria",
       "Diagnóstico por WhatsApp",
       "Participação em 12 sorteios anuais",
@@ -230,7 +230,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Qual o prazo de carência após a contratação?",
-    answer: "Para vistorias preventivas programadas e regulagens operacionais padrão, a carência técnica é de 72 horas úteis. Para solicitações corretivas com substituição de componentes no Plano Casa e Plano Total, aplica-se carência de 30 dias corridos.",
+    answer: "Para vistorias preventivas programadas e regulagens operacionais padrão, a carência técnica é de 72 horas úteis.",
     category: "Cobertura"
   },
   {
