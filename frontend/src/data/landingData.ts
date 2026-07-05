@@ -227,7 +227,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "É possível cancelar antes do término do contrato?",
-    answer: "Não. Nossos planos possuem vigência de 6 ou 12 meses e funcionam como a contratação de um pacote de serviços com pagamento recorrente. Ao assinar, você contrata todo o período escolhido, realizando o pagamento de forma parcelada. Por esse motivo, não é possível o cancelamento antecipado durante a vigência do contrato. Ao final do período contratado, você poderá optar pela renovação ou pelo encerramento da assinatura.",
+    answer: "Sim. O cliente pode solicitar o cancelamento da assinatura a qualquer momento. Após o prazo legal de 7 (sete) dias para exercício do direito de arrependimento, quando aplicável, o cancelamento antecipado implica o pagamento de multa compensatória correspondente a 20% (vinte por cento) do valor restante do contrato, permanecendo devidos os demais valores eventualmente vencidos até a data do cancelamento. Ao término da vigência contratada, a assinatura poderá ser encerrada sem multa, observadas as condições previstas no contrato.",
     category: "Planos"
   },
   {

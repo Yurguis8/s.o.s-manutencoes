@@ -195,7 +195,7 @@ export const CONSENTIMENTO_CONTENT: LegalDocument = {
     {
       title: '6. Revogação do Consentimento',
       paragraphs: [
-        'O consentimento pode ser revogado a qualquer momento, mediante solicitação ao canal oficial de atendimento ou ao e-mail [inserir e-mail de contato].',
+        'O consentimento pode ser revogado a qualquer momento, mediante solicitação ao canal oficial de atendimento ou ao e-mail sosmanutencoes.faleconosco@gmail.com.',
         'A revogação não afeta a licitude do tratamento realizado com base no consentimento anteriormente concedido, nem impede o tratamento necessário à execução do contrato vigente, ao cumprimento de obrigação legal, ao exercício regular de direitos ou a outras bases legais aplicáveis.',
         'Caso a revogação inviabilize o tratamento de dados indispensáveis à execução do serviço contratado, a continuidade de determinados benefícios poderá ser comprometida até a regularização da situação ou até o término do vínculo contratual.',
       ],
@@ -247,11 +247,12 @@ export const CONTRATO_CONTENT: LegalDocument = {
   ],
 },
 {
-  title: 'Cláusula 4ª — Da Vigência e da Fidelidade',
+   title: 'Cláusula 4ª — Da Vigência e da Fidelidade',
   paragraphs: [
     'A contratação será celebrada por prazo determinado, correspondente ao ciclo escolhido pelo CONTRATANTE, podendo ser de 6 (seis) meses ou 12 (doze) meses, conforme a oferta disponível no momento da adesão.',
-    'Durante a vigência mínima contratada, o CONTRATANTE se compromete a permanecer no plano contratado até o término do período escolhido, salvo hipóteses legais imperativas, rescisão por descumprimento da CONTRATADA ou exercício válido do direito de arrependimento no prazo legal.',
-    'Ao final da vigência mínima, o contrato poderá ser renovado automaticamente, se essa condição estiver expressamente indicada na oferta aceita, ou encerrado conforme as regras da Plataforma e o aviso prévio informado.',
+    'O CONTRATANTE poderá solicitar o cancelamento da assinatura a qualquer momento. Após o prazo legal de 7 (sete) dias para exercício do direito de arrependimento, quando aplicável, a rescisão antecipada implicará o pagamento de multa compensatória equivalente a 20% (vinte por cento) do valor restante do período contratado.',
+    'Não será devida a multa quando a rescisão decorrer de descumprimento contratual pela CONTRATADA ou em outras hipóteses previstas em lei.',
+    'Ao final da vigência mínima, o contrato poderá ser renovado automaticamente, se essa condição estiver expressamente indicada na oferta aceita, ou encerrado pelo CONTRATANTE sem incidência de multa, observadas as regras de renovação e aviso prévio previstas neste contrato.'
   ],
 },
 {
@@ -407,9 +408,9 @@ export const TERMOS_CONTENT: LegalDocument = {
     {
       title: '7. Cancelamento',
       paragraphs: [
-        'O cliente poderá exercer o direito de arrependimento no prazo legal de 7 (sete) dias, quando aplicável às contratações realizadas pela internet.',
-        'Após esse período, não será permitido o cancelamento antecipado antes do término da vigência contratada.',
-        'Ao final do período contratado, o cliente poderá optar por renovar ou encerrar sua assinatura.',
+        'O cliente poderá exercer o direito de arrependimento no prazo legal de 7 (sete) dias, quando aplicável às contratações realizadas pela internet, observadas as condições previstas no Código de Defesa do Consumidor.',
+        'Após esse período, o cliente poderá solicitar o cancelamento antecipado da assinatura a qualquer momento. Nessa hipótese, será aplicada multa compensatória equivalente a 20% (vinte por cento) do valor restante do período contratado, sem prejuízo dos valores já vencidos até a data do cancelamento.',
+        'Ao término da vigência contratada, o cliente poderá optar por renovar ou encerrar sua assinatura sem incidência de multa, conforme as regras vigentes no momento da solicitação.'
       ],
     },
     {
