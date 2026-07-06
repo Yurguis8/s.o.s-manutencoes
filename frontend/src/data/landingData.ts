@@ -3,9 +3,9 @@ import { Plan, StepItem, ProblemItem, BenefitItem, TestimonialItem, FAQItem, Har
 export const COMPANY_INFO = {
   name: "S.O.S Manutenções",
   slogan: "Seu patrimônio merece cuidado contínuo.",
-  phone: "(11) 4002-8922",
-  whatsapp: "(11) 99882-3456",
-  whatsappUrl: "https://wa.me/5511998823456?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20assinatura%20da%20S.O.S%20Manuten%C3%A7%C3%B5es.",
+  phone: "(71) 99201-9276",
+  whatsapp: "(71) 9201-9276",
+  whatsappUrl: "https://wa.me/557192019276?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20assinatura%20da%20S.O.S%20Manuten%C3%A7%C3%B5es.",
   email: "sosmautencoes.faleconosco@gmail.com.br",
   address: "Rua Maria Alves Damaceno - Ipirá - Bahia, BA",
   socials: {
@@ -342,7 +342,7 @@ export const HARDWARE_PRODUCTS: HardwareProduct[] = [
   },
 ];
 
-const WHATSAPP_STORE_NUMBER = '5511998823456';
+const WHATSAPP_STORE_NUMBER = '557192019276';
 
 export function getHardwareOrderWhatsAppUrl(product: HardwareProduct, quantity: number): string {
   const unitPrice = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });

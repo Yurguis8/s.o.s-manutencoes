@@ -2,7 +2,7 @@ import React from "react";
 import { MessageCircle, ShieldCheck, Clock3 } from "lucide-react";
 
 export const CancellationSection: React.FC = () => {
-  const phone = "5575999999999"; // Coloque o número com DDI e DDD
+  const phone = "557192019276"; // Coloque o número com DDI e DDD
   const message = encodeURIComponent(
     `Olá! Gostaria de solicitar o cancelamento da minha assinatura.
 
