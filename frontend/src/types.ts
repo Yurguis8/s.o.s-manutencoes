@@ -7,8 +7,15 @@ export interface Plan {
   totalSemiannual: number;        // total billed every 6 months
   totalAnnual: number;            // total billed every 12 months
   isPopular?: boolean;
-  benefits: string[];
+  benefitsSemiannual: string[];
+  benefitsAnnual: string[];
   notIncluded?: string[];
+}
+
+export type BillingCycle = 'semiannual' | 'annual';
+
+export function getPlanBenefits(plan: Plan, billingCycle: BillingCycle): string[] {
+  return billingCycle === 'semiannual' ? plan.benefitsSemiannual : plan.benefitsAnnual;
 }
 
 export interface StepItem {
@@ -45,7 +52,6 @@ export interface FAQItem {
   category: 'Geral' | 'Planos' | 'Cobertura' | 'Pagamento';
 }
 
-export type BillingCycle = 'semiannual' | 'annual';
 export type PaymentGateway = 'stripe' | 'asaas' | 'mercadopago';
 
 export interface HardwareProduct {

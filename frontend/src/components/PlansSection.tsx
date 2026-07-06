@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useReducedMotion } from 'motion/react';
 import { PLANS } from '../data/landingData';
-import { Plan, BillingCycle } from '../types';
+import { Plan, BillingCycle, getPlanBenefits } from '../types';
 import { Check, ArrowRight } from 'lucide-react';
 import { Reveal, RevealStagger, RevealStaggerItem } from './Reveal';
 import { APPLE_EASE_OUT } from './Reveal';
@@ -40,6 +40,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, billingCycle, onSubscribe }) 
   const monthlyEquiv = billingCycle === 'semiannual' ? plan.priceSemiannualMonthly : plan.priceAnnualMonthly;
   const totalCycle = billingCycle === 'semiannual' ? plan.totalSemiannual : plan.totalAnnual;
   const cycleName = billingCycle === 'semiannual' ? '6 meses' : '12 meses';
+  const benefits = getPlanBenefits(plan, billingCycle);
 
   return (
     <motion.div
@@ -102,7 +103,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, billingCycle, onSubscribe }) 
               <div className="text-[11px] font-semibold text-foreground uppercase tracking-wider mb-4">
                 O que está incluso:
               </div>
-              {plan.benefits.map((benefit, i) => (
+              {benefits.map((benefit, i) => (
                 <div >
                 <div key={i} className="flex items-start gap-2.5 text-xs text-foreground-muted">
                   <Check className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
