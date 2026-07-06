@@ -33,8 +33,7 @@ export const MercadoPagoTrustBadge: React.FC<MercadoPagoTrustBadgeProps> = ({
           Pagamento protegido pelo Mercado Pago
         </p>
         <p className="mt-0.5 text-[11px] leading-relaxed text-foreground-muted">
-          Seus dados de cartão são processados diretamente pelo Mercado Pago — nossa plataforma
-          não armazena informações bancárias. Ambiente criptografado e antifraude em tempo real.
+          Nossa plataforma não armazena informações bancárias. Ambiente criptografado e antifraude em tempo real.
         </p>
       </div>
     </div>
