@@ -140,9 +140,7 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
                 placeholder="joao@email.com"
                 className="w-full px-3 py-2 rounded-lg border border-border text-sm text-foreground focus:outline-none focus:border-brand transition-colors bg-surface disabled:bg-surface-muted disabled:text-foreground-subtle"
               />
-              <p className="mt-1 text-[10px] text-foreground-subtle leading-relaxed">
-                Usamos para confirmações e agendamento de vistorias. No pagamento, você pode usar qualquer e-mail da sua conta Mercado Pago.
-              </p>
+              
             </div>
 
             <div>
@@ -189,7 +187,7 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               </button>
               {showTermsText && (
                 <div className="p-3 bg-surface-card text-[11px] text-foreground-muted border-t border-border leading-relaxed max-h-[150px] overflow-y-auto">
-                  <p className="mb-2"><strong>1. Objeto:</strong> A S.O.S Manutenções presta serviços preventivos e emergenciais de infraestrutura civil, elétrica e hidráulica residencial conforme o plano contratado.</p>
+                  <p className="mb-2"><strong>1. Objeto:</strong> A S.O.S Manutenções presta serviços preventivos conforme o plano contratado.</p>
                   <p className="mb-2"><strong>2. Escopo:</strong> Estão inclusas vistorias técnicas periódicas e atendimento de chamados sob demanda. Serviços fora do escopo do plano serão orçados e cobrados separadamente.</p>
                   <p className="mb-2"><strong>3. Acesso:</strong> O cliente se compromete a fornecer livre acesso ao imóvel nos dias e horários agendados.</p>
                   <p><strong>4. Rescisão:</strong> O cancelamento antecipado do plano anual e semestral está sujeito a multa compensatória de 20% do valor restante das parcelas do contrato.</p>
@@ -209,8 +207,8 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({ plan, billingCyc
               </button>
               {showContractText && (
                 <div className="p-3 bg-surface-card text-[11px] text-foreground-muted border-t border-border leading-relaxed max-h-[150px] overflow-y-auto">
-                  <p className="mb-2"><strong>Cláusula 1ª (Vigência):</strong> Este contrato é celebrado por prazo determinado correspondente ao ciclo de faturamento selecionado (6 ou 12 meses), com renovação automática no término.</p>
-                  <p className="mb-2"><strong>Cláusula 2ª (Pagamento):</strong> O faturamento é realizado de forma recorrente por meio do gateway de pagamentos parceiro (Mercado Pago). A falta de pagamento suspende o atendimento técnico em 5 dias.</p>
+                  <p className="mb-2"><strong>Cláusula 1ª (Vigência):</strong> Este contrato é celebrado por prazo determinado correspondente ao ciclo de faturamento selecionado (6 ou 12 meses).</p>
+                  <p className="mb-2"><strong>Cláusula 2ª (Pagamento):</strong> O faturamento é realizado de forma recorrente por meio do gateway de pagamentos parceiro (Mercado Pago). A falta de pagamento suspende o atendimento técnico.</p>
                   <p><strong>Cláusula 3ª (Declarações):</strong> O contratante declara ser o proprietário, inquilino ou representante legal autorizado do imóvel para fins de realização das manutenções necessárias.</p>
                 </div>
               )}
